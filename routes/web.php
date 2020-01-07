@@ -84,4 +84,39 @@ Route::get('/serviceprovider/eqpeditdetails', function () {
     return view('serviceprovider.eqpedit');
 });
 
+/*Route::get('/user_home' , function(){
+    return view('pages.user_home');
+}); */
 
+Route::get('/driver_home' , function(){
+    return view('pages.driver_home');
+});
+
+Route::get('/driver_profile' , function(){
+    return view('pages.driver_profile');
+});
+
+Route::get('/guide_profile' , function(){
+    return view('pages.guide_profile');
+});
+ 
+Route::get('/booking_form/guide_booking' , 'GuideBookingController@index');
+Route::post('/booking_form/guide_booking' , 'GuideBookingController@create');
+
+Route::get('/booking_form/driver_booking' , 'DriverBookingController@index');
+Route::post('/booking_form/driver_booking' , 'DriverBookingController@create');
+
+
+Route::get('/status' , function(){
+    return view('tourist.status.waiting');
+})->name('status'); 
+
+Route::get('/feedback' , function(){
+    return view('tourist.booking_form.feedback');
+});
+
+Route::get('/user_profile/user_profile_edit' , function(){
+    return view('tourist.user_profile.user_profile_edit');
+});
+
+ 
