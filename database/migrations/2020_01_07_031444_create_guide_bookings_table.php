@@ -21,7 +21,7 @@ class CreateGuideBookingsTable extends Migration
             $table->date('end_date');
             $table->integer('nop');
             $table->string('district');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->timestamps();
 
             $table->index('tourist_id');

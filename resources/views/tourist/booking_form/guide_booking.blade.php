@@ -9,7 +9,7 @@
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
-
+					
 					<div class="booking-form">
 						<div class="form-header">
 							<h1>Book your Guide</h1>
@@ -82,8 +82,13 @@
                                   <div class="form-group">
                                      <span class="form-label">Add a Note</span>
 							           <textarea class="form-control" rows="3" id="note" name="note"></textarea> 
+									  
                                   </div>
-                                </div>  
+                                </div> 
+
+								 @error('note')
+									   <b>Error</b>
+									   @enderror 
                             
 								<div class="col-md-3">
 									<div class="form-btn">
@@ -108,6 +113,7 @@
 							</div>
 						</form>
 					</div>
+					
 				</div>
 			</div>
 		</div>

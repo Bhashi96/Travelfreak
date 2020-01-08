@@ -1,12 +1,10 @@
 
 @extends('layouts.defaulthome')
-
-
-
-<br>
-
    
 @section('content')
+
+@include('includes.user_home.tourist_home_nav')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

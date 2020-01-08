@@ -2,6 +2,7 @@
 
 @section('content')
 @csrf
+@include('includes.user_home.tourist_home_nav')
 @include('includes.user_home.user_home_banner')
 <br>
 

@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\GuideBooking;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\GuideBookingRequest;
 
 class GuideBookingController extends Controller
 {
@@ -14,21 +15,7 @@ class GuideBookingController extends Controller
     }
    
 
-    public function Validator(array $data)
-    {
-        return Validator::make($data, [
-           
-            'tourist_id'=>'required',
-            'guide_id'=>'required',
-            'start_date'=> 'required',
-            'end_date'=> 'required',
-            'district'=> 'required',
-            'nop'=> 'required',
-            
-           
-        ]);
-    }
-
+    
     /**
      * 
      *
@@ -36,8 +23,9 @@ class GuideBookingController extends Controller
      * @return \App\User
      */
     
-    public function create(Request $request)
+    public function create(GuideBookingRequest $request)
     {
+
 
         $booking =new GuideBooking;
         $booking->tourist_id = Auth::user()->id;

@@ -20,8 +20,9 @@
 						<div class="form-header">
 							<h1>Rate your service</h1>
 						</div>
-						<form action="/waiting">
-							
+						
+						<form action="/booking_form/feedback" method="post">
+							@csrf 	
 
 
 							<div class="row">
@@ -31,7 +32,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Rating</span>
-										<select class="form-control" required>
+										<select class="form-control" name="rate" required>
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -46,16 +47,23 @@
                                 <div class="col-md-8">
                                   <div class="form-group">
                                      <span class="form-label">Discription</span>
-							           <textarea class="form-control" rows="5" id="comment"></textarea> 
+							           <textarea class="form-control" rows="5" id="comment"  name="comment"></textarea> 
                                   </div>
                                 </div>  
 								
-								<div class="col-md-3">
+							 <!--	<div class="col-md-3">
 									<div class="form-btn">
-                                   <!--    <a href="/feedback" class="submit-btn">Book</a> -->
+                                       <a href="/feedback" class="submit-btn">Book</a> 
                                         <button class="submit-btn" onclick="alert('Request send')"><a href="/user_home" >Submit</a></button>
                                         
 										
+									</div>
+								</div>  -->
+								<div class="col-md-3">
+									<div class="form-btn">
+                                        <button type="submit" class="submit-btn">
+                                            Submit
+                                        </button>	
 									</div>
 								</div>
 

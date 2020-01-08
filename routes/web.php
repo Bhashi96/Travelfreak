@@ -90,6 +90,7 @@ Route::get('/serviceprovider/eqpeditdetails', function () {
 
 Route::get('/driver_home' , function(){
     return view('pages.driver_home');
+    
 });
 
 Route::get('/driver_profile' , function(){
@@ -106,6 +107,9 @@ Route::post('/booking_form/guide_booking' , 'GuideBookingController@create');
 Route::get('/booking_form/driver_booking' , 'DriverBookingController@index');
 Route::post('/booking_form/driver_booking' , 'DriverBookingController@create');
 
+Route::get('/booking_form/feedback' , 'FeedbackController@index');
+Route::post('/booking_form/feedback' , 'FeedbackController@create');
+
 
 Route::get('/status' , function(){
     return view('tourist.status.waiting');
@@ -116,6 +120,18 @@ Route::get('/feedback' , function(){
 });
 
 Route::get('/user_profile/user_profile_edit' , function(){
+    return view('tourist.user_profile.user_profile_edit');
+});
+
+Route::get('/root', function () {
+    return view('pages.home1');
+});
+
+Route::get('/tourist_profile', function () {
+    return view('tourist.user_profile.user_profile');
+});
+
+Route::get('/tourist_profile_edit', function () {
     return view('tourist.user_profile.user_profile_edit');
 });
 
