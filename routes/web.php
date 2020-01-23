@@ -28,10 +28,11 @@ Route::get('/login', function () {
     return view('pages.login');
 });
 
-Route::get('/forum', function () {
-    return view('pages.forum');
-});
+//Route::get('/forum', function () {
+   // return view('pages.forum');
+//});
 
+Route::resource('/forum','ThreadController');
 
 Route::get('/registrations/driver', function () {
     return view('pages.registrations.driver_reg');

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\touregister;
+use App\drvregisters;
+use App\gudregisters;
+use App\eqpregisters;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -80,7 +84,56 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
+
+
     {
+        if($data['user_type']=="tou"){
+
+
+        $treg=new touregister;
+        $treg->email=$data['email'];
+        $treg->name=$data['name'];
+       
+        $treg->country=$data['country'];
+        $treg->save();
+
+
+        }else if($data['user_type']=="gud"){
+            $greg=new gudregisters;
+            $greg->email=$data['email'];
+            $greg->name=$data['name'];
+            $greg->contact=$data['contact'];
+            $greg->gender=$data['gender'];
+            $greg->age=$data['age'];
+            $greg->licence=$data['licence'];
+            $greg->area=$data['area'];
+            $greg->price=$data['charge'];
+
+            $greg->save();
+        }else if($data['user_type']=="drv"){
+            $dreg=new drvregisters;
+            $dreg->email=$data['email'];
+            $dreg->name=$data['name'];
+            $dreg->contact=$data['contact'];
+            $dreg->gender=$data['gender'];
+            $dreg->age=$data['age'];
+            $dreg->licence=$data['licence'];
+            $dreg->v_reg_no=$data['vrn'];
+            
+
+            $dreg->save();
+        }else{
+
+            $ereg=new eqpregisters;
+            $ereg->email=$data['email'];
+            $ereg->name=$data['name'];
+            $ereg->contact=$data['contact'];
+            $ereg->address=$data['address'];
+            $ereg->area=$data['area'];
+            $ereg->save();
+        }
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
