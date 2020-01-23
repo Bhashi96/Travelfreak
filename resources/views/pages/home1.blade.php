@@ -2,7 +2,7 @@
 
 
 @section('content')
-
+@include('includes.user_home.tourist_home_nav')
 @include('includes.home.container')
 @include('includes.home.banner')
 <br>
