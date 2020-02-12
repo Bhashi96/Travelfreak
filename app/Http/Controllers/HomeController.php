@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Drivers;
 use App\Guides;
 class HomeController extends Controller
 {
@@ -21,11 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         
         $guide = Guides::all();
-        return view('home',compact('guide'));
+       // return view('home',compact('guide'));
+        $driver = Drivers::all();
+        return view('home',compact('driver','guide'));
         
     }
 }

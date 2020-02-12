@@ -40,11 +40,11 @@
 				<div class="row">
 					<div class="booking-form">
                     <h1 class="form-header">Service Finiesd</h1>
-					<!--	<div class="form-header">
+						<div class="form-header">
 							<h1>Service Finiesd</h1>
 						</div> 
-                        <a href="/feedback" class="submit-btn">Rate your service</a>  -->
-                        <button class="submit-btn"><a href="/feedbackmsg/{{$guide->id}}" ><h4>Rate your service</h4></a></button>
+                        <a href="/feedback" class="submit-btn">Rate your service</a>  
+                        <button class="submit-btn"><a href="/feedbackmsg_guide/{{$guide->id}}" ><h4>Rate your service</h4></a></button>
 						
 					</div>
 				</div>

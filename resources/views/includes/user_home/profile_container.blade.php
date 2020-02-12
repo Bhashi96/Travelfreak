@@ -91,64 +91,27 @@ hr.style14 {
 
 <!-- ********************************************************************************************************************  -->
 
+<!-- *********************************************************************************************************************  -->       
 <div class="container mt-3">
-<p class="text-Left lead" style="font-size:160%">Top Equipment providers </p>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                <p class="text-center lead">Camping Gear</p>
-                <img src="images/equpiment1.jpg" class="mx-auto d-block image-fluid" alt="">
-                <br>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <button type="button" class="btn btn-primary" >Book now</button> 
-                <p class="text-center" > </p>
-               
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                    <p class="text-center lead">Kumara Tents</p>
-                    <img src="images/equpiment2.jpg" class="mx-auto d-block image-fluid" alt="">
-                    <br>
-                    <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <button type="button" class="btn btn-primary" >Book now</button> 
-                    <p class="text-center" > </p>
-            </div>
-
+<p class="text-Left lead" style="font-size:160%">Top Drivers </p>
+    <div class="row">     
+    @foreach ($driver as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                    <p class="text-center lead">Sampa wayo Tourism</p>
-                    <img src="images/equpiment3.jpg" class="mx-auto d-block image-fluid" alt="">
-                     <br>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <button type="button" class="btn btn-primary" >Book now</button> 
-                     <p class="text-center" > </p>
-            </div>
- 
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                    <p class="text-center lead">Camping tents</p>
-                    <img src="images/equpiment4.jpg" class="mx-auto d-block image-fluid" alt="">
-                    <br>
-                    <span class="fa fa-star checked"></span>
+                <p class="text-center lead">{{ $value->name}} </p>
+                <img src="images/driver/driver{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="">
+                <br>
+                <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star"></span>
                      <span class="fa fa-star"></span> 
-                     <button type="button" class="btn btn-primary" >Book now</button> 
-                    <p class="text-center" > </p>
+                     <!-- <a href="/guide_profile" class="btn btn-primary">Book now</a> -->
+                     <a href="{{route('drivers.show',$value->id)}}" class="btn btn-primary">Book now</a>
+                <p class="text-center" > </p>
              </div>
-        </div> 
-</div>
+             @endforeach          
+    </div>     
+</div> 
 
  <!-- *********************************************************************************************************************  -->       
  <br>
@@ -162,7 +125,7 @@ hr.style14 {
     @foreach ($guide as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead">{{ $value->name}} </p>
-                <img src="images/guide{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="">
+                <img src="images/guide/guide{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="">
                 <br>
                 <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
@@ -173,52 +136,8 @@ hr.style14 {
                      <a href="{{route('guides.show',$value->id)}}" class="btn btn-primary">Book now</a>
                 <p class="text-center" > </p>
              </div>
-             @endforeach
-             
-
-             <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                <p class="text-center lead">Jayasuriya</p>
-                <img src="images/guide2.jpg" class="mx-auto d-block image-fluid" alt="">
-                <br>
-                <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <a href="/guide_profile" class="btn btn-primary">Book now</a>
-                <p class="text-center" > </p>
-             </div>
-
-            
-             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                <p class="text-center lead">Sivakumaran</p>
-                <img src="images/guide3.jpg" class="mx-auto d-block image-fluid" alt="">
-                <br>
-                <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <a href="/guide_profile" class="btn btn-primary">Book now</a>
-                <p class="text-center" > </p>
-            </div>
-              
-         
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                <p class="text-center lead">Sanhitha</p>
-                <img src="images/guide4.jpg" class="mx-auto d-block image-fluid" alt="">
-                <br>
-                <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star checked"></span>
-                     <span class="fa fa-star"></span>
-                     <span class="fa fa-star"></span> 
-                     <a href="/guide_profile" class="btn btn-primary">Book now</a>
-                <p class="text-center" > </p>
-         </div> -->
-
-    </div>
-       
+             @endforeach          
+    </div>     
 </div> 
 
 

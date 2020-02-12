@@ -88,9 +88,6 @@ Route::get('/serviceprovider/eqpeditdetails', function () {
     return view('serviceprovider.eqpedit');
 });
 
-/*Route::get('/user_home' , function(){
-    return view('pages.user_home');
-}); */
 
 Route::get('/driver_home' , function(){
     return view('pages.driver_home');
@@ -101,26 +98,9 @@ Route::get('/driver_profile' , function(){
     return view('pages.driver_profile');
 });
 
-// Route::get('/guide_profile' , function(){
-//     return view('pages.guide_profile');
-// });
-// Route::get('/booking_form/guide_booking' , 'GuideBookingController@index');
-// Route::post('/booking_form/guide_booking' , 'GuideBookingController@create');
-
-Route::get('/booking_form/driver_booking' , 'DriverBookingController@index');
-Route::post('/booking_form/driver_booking' , 'DriverBookingController@create');
-
-
-
-
-
-Route::get('/feedback' , function(){
-    return view('tourist.booking_form.feedback');
-});
-
-Route::get('/user_profile/user_profile_edit' , function(){
-    return view('tourist.user_profile.user_profile_edit');
-});
+//Route::get('/feedback' , function(){
+//    return view('tourist.booking_form.feedback');
+//});
 
 Route::get('/root', function () {
     return view('pages.home1');
@@ -134,21 +114,27 @@ Route::put('/user_profile_edit/{id}','ProfileController@update')->name('update-t
 
 
 Route::resource('guides','GuidesController');
-
 Route::resource('guidebooking' , 'GuideBookingController');
 Route::get('/guidebooks/{id}','GuideBookingController@index2');
 
-// Route::resource('feedbackrate' , 'FeedbackController');
-// Route::get('/fbrates/{id}','FeedbackController@index2');
-
-Route::get('/feedbackmsg/{id}' , 'FeedbackController@index2');
-Route::post('/booking_form/feedback' , 'FeedbackController@create');
+Route::resource('drivers','DriversController');
+Route::resource('driverbooking' , 'DriverBookingController');
+Route::get('/driverbooks/{id}','DriverBookingController@index2');
 
 
+//Route::get('/status/{id}','FeedbackController@index3')->name('status');
+Route::get('/status_guide/{id}','FeedbackGuideController@index2')->name('status_guide');
+Route::get('/feedbackmsg_guide/{id}' , 'FeedbackGuideController@index1');
+//Route::get('/feedbackmsg/{id}' , 'FeedbackController@index2');
+Route::post('/booking_form/feedback_guide' , 'FeedbackGuideController@create');
+
+Route::get('/status_driver/{id}','FeedbackDriverController@index2')->name('status_driver');
+Route::get('/feedbackmsg_driver/{id}' , 'FeedbackDriverController@index1');
+
+Route::post('/booking_form/feedback_driver' , 'FeedbackDriverController@create');
 // Route::get('/status' , function(){
 //     return view('tourist.status.waiting');
 // })->name('status'); 
 
-Route::get('/statusnew/{id}','FeedbackController@index3')->name('statusnew');
 
 

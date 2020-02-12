@@ -21,7 +21,8 @@
 							<h1>Rate your service </h1>
 						</div>
 						
-						<form action="/booking_form/feedback" method="post">
+						<form action="/booking_form/feedback_driver" method="post">
+                       
 						
 							@csrf 	
 
@@ -32,7 +33,7 @@
 
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Rating {{$guide->id}}</span>
+										<span class="form-label">Rating {{$driver->id}}</span> 
 										<select class="form-control" name="rate" required>
 											<option>1</option>
 											<option>2</option>
@@ -55,8 +56,8 @@
 								<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Guide ID</span>
-										<input id="sp_id" name="sp_id" class="form-control" value= "{{$guide->id}}" >
+										<span class="form-label">Driver ID</span>
+										<input id="driver_id" name="driver_id" class="form-control" value= "{{$driver->id}}" >
 									</div>
 									
 								</div>

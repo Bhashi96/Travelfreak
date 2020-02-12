@@ -80,9 +80,9 @@ body {
                   <div class="border-bottom text-center pb-4">
                     <img src="../img/boy4.jpg" alt="profile" class="img-lg rounded-circle mb-3">
                     <div class="mb-3">
-                      <h3>S A M Pathirana</h3>
+                      <h3>{{ $driver -> name}}</h3>
                       <div class="d-flex align-items-center justify-content-center">
-                        <h5 class="mb-0 mr-2 text-muted">2 years of experience</h5>
+                        <h5 class="mb-0 mr-2 text-muted">{{ $driver -> experience}}</h5>
                         </div>
                       </div>
                        
@@ -135,15 +135,31 @@ body {
                         Age
                       </span>
                       <span class="float-right text-muted">
-                        33 years
+                      {{$driver->age}}
                       </span>
                     </p>
                     <p class="clearfix">
                       <span class="float-left">
-                        languages 
+                        Mobile
                       </span>
                       <span class="float-right text-muted">
-                        English
+                      {{$driver->contact_no}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Licence-no
+                      </span>
+                      <span class="float-right text-muted">
+                      {{$driver->licence__id}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Vehicle-no
+                      </span>
+                      <span class="float-right text-muted">
+                      {{$driver->vehicle_no}}
                       </span>
                     </p>
                     <p class="clearfix">
@@ -151,7 +167,7 @@ body {
                         Charge per day
                       </span>
                       <span class="float-right text-muted">
-                        <a href="#">  Rs.1200 </a>
+                        <a href="#">{{$driver->chargeperday}}</a>
                       </span>
                     </p>
                 
@@ -160,7 +176,9 @@ body {
                     </div>
                 </div>
             </div>
-            <a href="/booking_form/driver_booking" class="btn btn-success btn-lg">Book now</a> 
+           <!--    <a href="/booking_form/driver_booking" class="btn btn-success btn-lg">Book now</a>   -->
+            <a href="/driverbooks/{{$driver->id}}" class="btn btn-success btn-lg">Book now</a>
+
                <div class="col-lg-8">
                   
                   <div class="mt-4 py-2 border-top border-bottom">

@@ -3,28 +3,27 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
-use App\Feedback;
-use App\Guides;
+use App\FeedbackDriver;
+use App\Drivers;
 use Illuminate\Support\Facades\Validator;
 
-class FeedbackController extends Controller
+class FeedbackDriverController extends Controller
 {
+    
+
+    public function index1($id){
+       
+        $driver = Drivers::find($id);
+        return view('tourist.booking_form.feedback_driver',compact('driver'));
+
+    }
+
+    
     public function index2($id){
-        $guide = Guides::find($id);
-        return view('tourist.booking_form.feedback',compact('guide'));
-
+       
+        $driver = Drivers::find($id);
+        return view('tourist.status.waiting_driver',compact('driver'));
     }
-
-    // public function index2($id){
-    //     $guide = Guides::find($id);
-    //     return view('tourist.booking_form.feedback',compact('guide'));
-    // }
-
-    public function index3($id){
-        $guide = Guides::find($id);
-        return view('tourist.status.waiting',compact('guide'));
-    }
-   
 
     public function Validator(array $data)
     {
@@ -61,5 +60,4 @@ class FeedbackController extends Controller
         return redirect()->route('home');
     }
 }
-
 

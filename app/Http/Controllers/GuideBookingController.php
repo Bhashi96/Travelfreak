@@ -51,7 +51,7 @@ class GuideBookingController extends Controller
 
         $num = $request->guide_id;
         
-        return redirect()->route('statusnew', [$num]);
+        return redirect()->route('status_guide', [$num]);
        
         
     }
