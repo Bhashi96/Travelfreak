@@ -25,6 +25,9 @@ class guidemiddleware
         }else if(Auth::user()->user_type=='eqp')
         {
             return $next($request); 
+        }else  if(Auth::user()->user_type=='admin')
+        {
+          return $next($request);
         }else 
         {
             return redirect('/home');

@@ -68,6 +68,9 @@ Route::group(['middleware' => ['auth','gud']], function(){
     Route::get('/eqphome', function () {
         return view('pages.eqphome');
     });
+    Route::get('/adminhome', function () {
+        return view('pages.adminhome');
+    });
     
 
 });
