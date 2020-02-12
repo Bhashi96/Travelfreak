@@ -97,23 +97,18 @@ Route::get('/driver_profile' , function(){
     return view('pages.driver_profile');
 });
 
-Route::get('/guide_profile' , function(){
-    return view('pages.guide_profile');
-});
- 
-Route::get('/booking_form/guide_booking' , 'GuideBookingController@index');
-Route::post('/booking_form/guide_booking' , 'GuideBookingController@create');
+// Route::get('/guide_profile' , function(){
+//     return view('pages.guide_profile');
+// });
+// Route::get('/booking_form/guide_booking' , 'GuideBookingController@index');
+// Route::post('/booking_form/guide_booking' , 'GuideBookingController@create');
 
 Route::get('/booking_form/driver_booking' , 'DriverBookingController@index');
 Route::post('/booking_form/driver_booking' , 'DriverBookingController@create');
 
-Route::get('/booking_form/feedback' , 'FeedbackController@index');
-Route::post('/booking_form/feedback' , 'FeedbackController@create');
 
 
-Route::get('/status' , function(){
-    return view('tourist.status.waiting');
-})->name('status'); 
+
 
 Route::get('/feedback' , function(){
     return view('tourist.booking_form.feedback');
@@ -127,12 +122,29 @@ Route::get('/root', function () {
     return view('pages.home1');
 });
 
-Route::get('/tourist_profile', function () {
-    return view('tourist.user_profile.user_profile');
-});
 
-Route::get('/tourist_profile_edit', function () {
-    return view('tourist.user_profile.user_profile_edit');
-});
+Route::get('/user_profile', 'ProfileController@index1');
 
- 
+Route::get('/user_profile_edit','ProfileController@index2');
+Route::put('/user_profile_edit/{id}','ProfileController@update')->name('update-tourist');
+
+
+Route::resource('guides','GuidesController');
+
+Route::resource('guidebooking' , 'GuideBookingController');
+Route::get('/guidebooks/{id}','GuideBookingController@index2');
+
+// Route::resource('feedbackrate' , 'FeedbackController');
+// Route::get('/fbrates/{id}','FeedbackController@index2');
+
+Route::get('/feedbackmsg/{id}' , 'FeedbackController@index2');
+Route::post('/booking_form/feedback' , 'FeedbackController@create');
+
+
+// Route::get('/status' , function(){
+//     return view('tourist.status.waiting');
+// })->name('status'); 
+
+Route::get('/statusnew/{id}','FeedbackController@index3')->name('statusnew');
+
+

@@ -159,21 +159,24 @@ hr.style14 {
 <div class="container mt-3">
 <p class="text-Left lead" style="font-size:160%">Top Guides </p>
     <div class="row">     
-
+    @foreach ($guide as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                <p class="text-center lead">Madushanka </p>
-                <img src="images/guide1.jpg" class="mx-auto d-block image-fluid" alt="">
+                <p class="text-center lead">{{ $value->name}} </p>
+                <img src="images/guide{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="">
                 <br>
                 <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star"></span>
                      <span class="fa fa-star"></span> 
-                     <a href="/guide_profile" class="btn btn-primary">Book now</a>
-                <p class="text-center" >. </p>
+                     <!-- <a href="/guide_profile" class="btn btn-primary">Book now</a> -->
+                     <a href="{{route('guides.show',$value->id)}}" class="btn btn-primary">Book now</a>
+                <p class="text-center" > </p>
              </div>
+             @endforeach
+             
 
-             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+             <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead">Jayasuriya</p>
                 <img src="images/guide2.jpg" class="mx-auto d-block image-fluid" alt="">
                 <br>
@@ -212,8 +215,12 @@ hr.style14 {
                      <span class="fa fa-star"></span> 
                      <a href="/guide_profile" class="btn btn-primary">Book now</a>
                 <p class="text-center" > </p>
-         </div>
+         </div> -->
 
     </div>
        
 </div> 
+
+
+
+

@@ -4,12 +4,25 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Feedback;
+use App\Guides;
 use Illuminate\Support\Facades\Validator;
 
 class FeedbackController extends Controller
 {
-    public function index(){
-        return view('tourist.booking_form.feedback');
+    public function index2($id){
+        $guide = Guides::find($id);
+        return view('tourist.booking_form.feedback',compact('guide'));
+
+    }
+
+    // public function index2($id){
+    //     $guide = Guides::find($id);
+    //     return view('tourist.booking_form.feedback',compact('guide'));
+    // }
+
+    public function index3($id){
+        $guide = Guides::find($id);
+        return view('tourist.status.waiting',compact('guide'));
     }
    
 
@@ -23,8 +36,6 @@ class FeedbackController extends Controller
             'rate'=> 'required',
             'comment'=> 'required',
             
-            
-           
         ]);
     }
 
@@ -40,14 +51,15 @@ class FeedbackController extends Controller
 
         $rating =new Feedback;
         $rating->tourist_id = Auth::user()->id;
-        $rating->sp_id = 9;
+        $rating->sp_id = $request->sp_id;
         $rating->service_id = 007;
         $rating->rate = $request->rate;
         $rating->comment = $request->comment;
         
-
         $rating->save();
 
         return redirect()->route('home');
     }
 }
+
+

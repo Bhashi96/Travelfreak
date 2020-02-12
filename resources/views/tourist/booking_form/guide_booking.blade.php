@@ -12,10 +12,21 @@
 					
 					<div class="booking-form">
 						<div class="form-header">
-							<h1>Book your Guide</h1>
+							<h1>Book your Guides  </h1>
 						</div>
-				
-                		<form action="/booking_form/guide_booking" method="post">
+
+						@if(count($errors) > 0)
+						<div> 
+							<ul>
+									@foreach($errors->all() as $erorr)
+									  <li style="color:red">  {{$erorr}}</li>
+									@endforeach
+							</ul>
+						</div>
+						@endif
+						
+						<!-- /booking_form/guide_booking -->
+                		<form action="{{route('guidebooking.create')}}" method="put">
 							@csrf  
 							<div class="row">
 								<div class="col-md-6">
@@ -32,7 +43,16 @@
 									</div>
 								</div>
 							</div>
-
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Guide ID</span>
+										<input id="guide_id" name="guide_id" class="form-control" value= "{{$guide->id}}" >
+									</div>
+									
+								</div>
+								
+							</div>
 
 							<div class="row">
                             
@@ -93,7 +113,9 @@
 								<div class="col-md-3">
 									<div class="form-btn">
                                         <button type="submit" class="submit-btn">
-                                            Book
+                                            
+											Book
+					
                                         </button>	
 									</div>
 								</div>
