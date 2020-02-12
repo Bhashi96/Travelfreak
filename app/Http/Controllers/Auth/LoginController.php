@@ -37,6 +37,9 @@ class LoginController extends Controller
         }else if(Auth::user()->user_type=='eqp')
         {
             return 'eqphome' ;
+        }else if(Auth::user()->user_type=='admin')
+        {
+            return 'adminhome' ;
         
         }else  {
             return 'home';

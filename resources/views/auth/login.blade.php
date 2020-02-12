@@ -3,22 +3,31 @@
 
    
 @section('content')
-<br><br>
+<div style="background-image: url({{ asset('img/regimg.jpg') }});">
+<br><br><br><br><br><br><br><br><br><br>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+           
+                <div class="card-header"> <div class="row ">
+                     
+                 <a href="" class="navbar-brand"><img src="/images/smlogolog.jpg" class="mx-auto d-block image-fluid" alt=""></a><h3>{{ __('Travel Freak Login') }}</h3></div>
+            
+            </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group col-md-1">
+                             <i class="fa fa-user fa-3x"></i>
+                             
+                             </div>
+                            <label for="email" class="col-md-3 col-form-label text-md-left">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -30,9 +39,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group col-md-1">
+                             <i class="fa fa-unlock fa-3x"></i>
+                             </div>
+                            <label for="password" class="col-md-3 col-form-label text-md-left">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -74,7 +86,7 @@
         </div>
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection
 
 

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register as Driver') }}</div>
+                <div class="card-header"><h4>{{ __('Register as Driver') }}</h4></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -45,7 +45,7 @@
 
                                  <label for="inputGender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
                                         <div class="col-md-6">
-                                                <select id="inputGender" class="form-control">
+                                                <select id="inputGender" class="form-control"name="gender">
                                                  <option selected>Male</option>
                                                 <option>Female</option>
                                                 <option>Other</option>

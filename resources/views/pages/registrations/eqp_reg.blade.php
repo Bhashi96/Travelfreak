@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register as Equipment provider') }}</div>
+                <div class="card-header"><h4>{{ __('Register as Equipment provider') }}<h4></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -91,7 +91,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Available Tourism Area') }}</label>
 
                             <div class="col-md-6">
-                            <select id="inputProvince" class="form-control">
+                            <select id="inputProvince" class="form-control" name="area">
                                         <option selected>Southern Province</option>
                                         <option>Western Province</option>
                                         <option>North Province</option>
