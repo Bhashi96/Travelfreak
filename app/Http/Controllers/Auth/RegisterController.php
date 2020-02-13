@@ -95,6 +95,7 @@ class RegisterController extends Controller
         $treg->name=$data['name'];
        
         $treg->country=$data['country'];
+        $treg->contact=$data['contact'];
         $treg->save();
 
 

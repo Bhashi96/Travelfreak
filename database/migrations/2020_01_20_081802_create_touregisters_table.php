@@ -18,7 +18,7 @@ class CreateTouregistersTable extends Migration
             $table->string('email')->unique();
             $table->string('name');
             $table->string('country')->nullable();
-            $table->integer('cotact')->nullable();
+            $table->integer('contact')->nullable();
             $table->timestamps();
         });
     }
