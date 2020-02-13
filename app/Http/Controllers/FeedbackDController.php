@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
-use App\Feedback;
+use App\FeedbackDriver;
+use App\Drivers;
 use Illuminate\Support\Facades\Validator;
 
-class FeedbackController extends Controller
+class FeedbackDriverController extends Controller
 {
-    public function index(){
-        return view('tourist.booking_form.feedback');
+    
+
+    public function index1($id){
+       
+        $driver = Drivers::find($id);
+        return view('tourist.booking_form.feedback_driver',compact('driver'));
+
     }
-   
+
+    
+    public function index2($id){
+       
+        $driver = Drivers::find($id);
+        return view('tourist.status.waiting_driver',compact('driver'));
+    }
 
     public function Validator(array $data)
     {
@@ -23,8 +35,6 @@ class FeedbackController extends Controller
             'rate'=> 'required',
             'comment'=> 'required',
             
-            
-           
         ]);
     }
 
@@ -40,14 +50,14 @@ class FeedbackController extends Controller
 
         $rating =new Feedback;
         $rating->tourist_id = Auth::user()->id;
-        $rating->sp_id = 9;
+        $rating->sp_id = $request->sp_id;
         $rating->service_id = 007;
         $rating->rate = $request->rate;
         $rating->comment = $request->comment;
         
-
         $rating->save();
 
         return redirect()->route('home');
     }
 }
+

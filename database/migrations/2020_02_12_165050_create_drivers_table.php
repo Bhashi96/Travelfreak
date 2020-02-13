@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedbackTable extends Migration
+class CreateDriversTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateFeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('drivers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('tourist_id');
-            $table->unsignedBigInteger('guide_id');
-            $table->unsignedBigInteger('service_id');
-            $table->integer('rate');
-            $table->string('comment');
+            $table->string('name');
+            $table->integer('age');
+            $table->string('contact_no');
+            $table->string('vehicle_no');
+            $table->string('licence_id');
+            $table->string('chargeperday');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateFeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('drivers');
     }
 }

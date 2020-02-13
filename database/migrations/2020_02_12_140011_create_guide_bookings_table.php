@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedbackTable extends Migration
+class CreateGuideBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,21 @@ class CreateFeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('guide_bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tourist_id');
             $table->unsignedBigInteger('guide_id');
-            $table->unsignedBigInteger('service_id');
-            $table->integer('rate');
-            $table->string('comment');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('nop');
+            $table->string('district');
+            $table->string('note')->nullable();
+            $table->integer('book_flag');
+            $table->integer('finiesd_flag');
             $table->timestamps();
+
+            $table->index('tourist_id');
+            $table->index('guide_id');
         });
     }
 
@@ -31,6 +38,6 @@ class CreateFeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('guide_bookings');
     }
 }

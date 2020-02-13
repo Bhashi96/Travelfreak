@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\DriverBooking;
+use App\Drivers;
 use Illuminate\Support\Facades\Validator;
 
 
 class DriverBookingController extends Controller
 {
-    public function index(){
-        return view('tourist.booking_form.driver_booking');
+    
+    public function index2($id){
+        $driver = Drivers::find($id);
+        return view('tourist.booking_form.driver_booking',compact('driver'));
     }
-   
 
     public function Validator(array $data)
     {
@@ -42,7 +44,7 @@ class DriverBookingController extends Controller
 
         $booking =new DriverBooking;
         $booking->tourist_id = Auth::user()->id;
-        $booking->driver_id = 19;
+        $booking->driver_id = $request->driver_id;
         $booking->from = $request->from;
         $booking->to = $request->to;
         $booking->date = $request->date;
@@ -53,7 +55,9 @@ class DriverBookingController extends Controller
 
         $booking->save();
 
-        return redirect()->route('status');
+        $num = $request->driver_id;
+
+        return redirect()->route('status_driver', [$num]);
     }
 
 }
