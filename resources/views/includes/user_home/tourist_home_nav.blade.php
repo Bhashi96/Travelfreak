@@ -6,8 +6,8 @@
         <div class="collapse navbar-collapse justify-content-end" id="cd01">
                 <ul class="navbar-nav">
                         
-                        <li class="nav-item"><a href="/tourist_profile" class="nav-link disable">My profile</a>  </li>
-                        <li class="nav-item"><a href="/tourist_profile_edit" class="nav-link">Edit Profile</a>  </li>
+                        <li class="nav-item"><a href="/user_profile" class="nav-link disable">My profile</a>  </li>
+                        <li class="nav-item"><a href="/user_profile_edit" class="nav-link">Edit Profile</a>  </li>
                         <li class="nav-item "><a href="" class="nav-link">Messages</a>  </li>
                         <li class="nav-item"><a href="" class="nav-link">Notifications</a>  </li>
                         

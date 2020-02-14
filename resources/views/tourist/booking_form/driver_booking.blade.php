@@ -14,8 +14,19 @@
 						<div class="form-header">
 							<h1>Book your Driver</h1>
 						</div>
+
+						@if(count($errors) > 0)
+						<div> 
+							<ul>
+									@foreach($errors->all() as $erorr)
+									  <li style="color:red">  {{$erorr}}</li>
+									@endforeach
+							</ul>
+						</div>
+						@endif
 				
-                		<form action="/booking_form/driver_booking" method="post">
+                		<!-- /booking_form/driver_booking -->
+						<form action="{{route('driverbooking.create')}}" method="put">
 							@csrf  
 							<div class="row">
 								<div class="col-md-6">
@@ -48,6 +59,13 @@
 									<div class="form-group">
 										<span class="form-label">Pick up Time</span>
 										<input type="time" class="form-control" id="time" name="time" required>								
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Driver Id</span>
+										<input id="driver_id" name="driver_id" class="form-control" value= "{{$driver->id}}" >							
 									</div>
 								</div>
 								

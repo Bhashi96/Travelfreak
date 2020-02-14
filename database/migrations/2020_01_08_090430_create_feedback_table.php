@@ -16,7 +16,7 @@ class CreateFeedbackTable extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tourist_id');
-            $table->unsignedBigInteger('sp_id');
+            $table->unsignedBigInteger('guide_id');
             $table->unsignedBigInteger('service_id');
             $table->integer('rate');
             $table->string('comment');

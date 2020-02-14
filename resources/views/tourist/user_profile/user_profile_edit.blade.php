@@ -1,3 +1,9 @@
+@extends('layouts.defaulthome')
+
+@section('content')
+@csrf
+@include('includes.user_home.tourist_home_nav')
+
 <div class="container">
     <h1>Edit Profile</h1>
   	<hr>
@@ -12,79 +18,69 @@
         </div>
       </div>
       
-      <!-- edit form column -->
+     
       <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        <div>
         </div>
         <h3>Personal info</h3>
+        @if(count($errors) > 0)
+
+          <div> 
+              <ul>
+              @foreach($errors->all() as $erorr)
+                <li style="color:red">  {{$erorr}}</li>
+              @endforeach
+              </ul>
+          </div>
+
+        @endif
         
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post" action="{{   route( 'update-tourist',['id'=>Auth::user()->id] )   }}">  
+          @csrf
+          @method('put')
+         
           <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
+            <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Jane">
+              <input class="form-control" type="text" name="name" value="{{$user->name}}" placeholder="Enter your name">
             </div>
           </div>
+          
           <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
+            <label class="col-lg-3 control-label">Mobile no:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Bishop">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" name="mobile-no" placeholder="Enter your mobile no" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
+              <input class="form-control" type="text" name="email" value="{{$user->email}}" placeholder="Enter your e-mail">
             </div>
           </div>
+         
           <div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
+            <label class="col-md-3 control-label">Country:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
+              <input class="form-control" type="text" name="country"  placeholder="Enter your country">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name="password" placeholder="Enter the password">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name="re-pass" placeholder="Re-enter the password" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <input type="submit" class="btn btn-primary" value="Save Changes" >
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancel">
             </div>
@@ -94,3 +90,5 @@
   </div>
 </div>
 <hr>
+
+@endsection
