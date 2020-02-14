@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Guides;
+use App\gudregisters;
 class GuidesController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class GuidesController extends Controller
      */
     public function index()
     {
-        $guide = Guides::all();
+        $guide = gudregisters::all();
         return view('includes.user_home.profile_container',compact('guide'));
         // return view('guides.index',compact('guide'));
     }
@@ -47,7 +47,7 @@ class GuidesController extends Controller
      */
     public function show($id)
     {
-        $guide = Guides::find($id);
+        $guide = gudregisters::find($id);
         return view('pages.guide_profile',compact('guide'));
     }
 

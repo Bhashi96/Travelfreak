@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\FeedbackGuide;
-use App\Guides;
+use App\gudregisters;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -14,7 +14,7 @@ class FeedbackGuideController extends Controller
 
     public function index1($id){
         
-        $guide = Guides::find($id);
+        $guide = gudregisters::find($id);
         return view('tourist.booking_form.feedback_guide',compact('guide'));
 
     }
@@ -28,7 +28,7 @@ class FeedbackGuideController extends Controller
    
     public function index2($id){
        
-        $guide = Guides::find($id);
+        $guide = gudregisters::find($id);
         return view('tourist.status.waiting_guide',compact('guide'));
     }
 
@@ -55,9 +55,9 @@ class FeedbackGuideController extends Controller
     public function create(Request $request)
     {
 
-        $rating =new Feedback;
+        $rating =new FeedbackGuide;
         $rating->tourist_id = Auth::user()->id;
-        $rating->sp_id = $request->sp_id;
+        $rating->guide_id = $request->guide_id;
         $rating->service_id = 007;
         $rating->rate = $request->rate;
         $rating->comment = $request->comment;

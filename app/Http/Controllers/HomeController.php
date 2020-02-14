@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Drivers;
-use App\Guides;
+use App\drvregisters;
+use App\gudregisters;
+use App\eqpregisters;
 class HomeController extends Controller
 {
     /**
@@ -26,10 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         
-        $guide = Guides::all();
-       // return view('home',compact('guide'));
-        $driver = Drivers::all();
-        return view('home',compact('driver','guide'));
+        $guide = gudregisters::all();
+        $driver = drvregisters::all();
+        $eqp = eqpregisters::all();
+        return view('home',compact('driver','guide','eqp'));
         
     }
 }

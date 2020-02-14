@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuideBookingsTable extends Migration
+class CreateEquipmentBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,23 @@ class CreateGuideBookingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('guide_bookings', function (Blueprint $table) {
+        Schema::create('equipment_bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tourist_id');
-            $table->unsignedBigInteger('guide_id');
+            $table->unsignedBigInteger('equipment_id');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('nop');
-            $table->string('district');
+           // $table->integer('nop');
+           // $table->string('district');
             $table->string('note')->nullable();
+            $table->integer('book_flag');
+            $table->integer('finiesd_flag');
             $table->timestamps();
 
             $table->index('tourist_id');
-            $table->index('guide_id');
+            $table->index('equipment_id');
+
+            
         });
     }
 
@@ -36,6 +40,6 @@ class CreateGuideBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guide_bookings');
+        Schema::dropIfExists('equipment_bookings');
     }
 }
