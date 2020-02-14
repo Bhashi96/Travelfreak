@@ -28,11 +28,14 @@ Route::get('/login', function () {
     return view('pages.login');
 });
 
-//Route::get('/forum', function () {
-   // return view('pages.forum');
-//});
+Route::get('/forum2', function () {
+    $thread=App\Thread::paginate(15);
+    return view('pages.forum2',['threads'=>$thread]);
+  //  return view('pages.forum2');
+});
 
-Route::resource('/forum','ThreadController');
+//Route::resource('/forum','ThreadController');
+Route::resource('/thread','ThreadController');
 
 Route::get('/registrations/driver', function () {
     return view('pages.registrations.driver_reg');

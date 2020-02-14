@@ -16,7 +16,7 @@ class ThreadController extends Controller
     {
         //
         $threads=Thread::paginate(15);
-        return view("pages.forum",['threads'=>$threads]);
+        return view("threads.index",['threads'=>$threads]);
        //return view(view: 'pages.forum',compact( varname: 'threads'));
 
     }
@@ -29,6 +29,7 @@ class ThreadController extends Controller
     public function create()
     {
         //
+        return view("threads.create");
     }
 
     /**
@@ -40,6 +41,25 @@ class ThreadController extends Controller
     public function store(Request $request)
     {
         //
+            $this->validate($request,[
+
+                    'subject'=>'required',
+                    'type'=>'required',
+                    'thread'=>'required'
+
+            ]);
+
+
+            Thread::create($request->all());
+
+            return  back()->withmessage('Thread created successfully');
+
+
+
+
+
+
+
     }
 
     /**

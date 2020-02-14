@@ -95,7 +95,11 @@ class RegisterController extends Controller
         $treg->name=$data['name'];
        
         $treg->country=$data['country'];
+<<<<<<< HEAD
         $treg->image_path='images/user.png';
+=======
+        $treg->contact=$data['contact'];
+>>>>>>> 3bd63f540e82821516e74ff92b9ea211d83c1b4e
         $treg->save();
 
 

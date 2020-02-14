@@ -19,8 +19,12 @@ class CreateTouregistersTable extends Migration
             $table->string('email')->unique();
             $table->string('name');
             $table->string('country')->nullable();
+<<<<<<< HEAD
             $table->integer('cotact')->nullable();
             $table->string('image_path');
+=======
+            $table->integer('contact')->nullable();
+>>>>>>> 3bd63f540e82821516e74ff92b9ea211d83c1b4e
             $table->timestamps();
 
            // $table->index('user_id');
