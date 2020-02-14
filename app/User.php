@@ -36,4 +36,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+    public function touregister(){
+        return $this->hasMany(touregister::class);
+    }
+
+    public function gudregister(){
+        return $this->hasMany(gudregister::class);
+    }
+
+    public function drvregister(){
+        return $this->hasMany(drvregister::class);
+    }
+
+    public function eqpregister(){
+        return $this->hasMany(eqpregister::class);
+    }
 }

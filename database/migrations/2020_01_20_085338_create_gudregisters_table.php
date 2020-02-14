@@ -15,6 +15,7 @@ class CreateGudregistersTable extends Migration
     {
         Schema::create('gudregisters', function (Blueprint $table) {
             $table->bigIncrements('id');
+           // $table->unsignedInteger('user_id');
             $table->string('email')->unique();
             $table->string('name');
             $table->integer('contact')->nullable();
@@ -23,9 +24,12 @@ class CreateGudregistersTable extends Migration
             $table->string('licence')->nullable();
             $table->string('area')->nullable();
             $table->integer('price')->nullable();
+            $table->string('image_path');
             $table->boolean('isavailable')->default(1);
 
             $table->timestamps();
+
+          //  $table->index('user_id');
         });
     }
 

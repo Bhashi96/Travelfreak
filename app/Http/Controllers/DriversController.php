@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Drivers;
+use App\drvregisters;
 class DriversController extends Controller
 {
   /*  public function index()
@@ -15,7 +15,7 @@ class DriversController extends Controller
 
     public function show($id)
     {
-        $driver = Drivers::find($id);
+        $driver = drvregisters::find($id);
         return view('pages.driver_profile',compact('driver'));
     }  
 }

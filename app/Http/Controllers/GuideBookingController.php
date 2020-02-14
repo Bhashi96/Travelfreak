@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\GuideBooking;
-use App\Guides;
+use App\gudregisters;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\GuideBookingRequest;
 
@@ -12,7 +12,7 @@ class GuideBookingController extends Controller
 {
 
     public function index2($id){
-        $guide = Guides::find($id);
+        $guide = gudregisters::find($id);
         return view('tourist.booking_form.guide_booking',compact('guide'));
     }
     

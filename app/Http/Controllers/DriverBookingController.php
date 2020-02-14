@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\DriverBooking;
-use App\Drivers;
+use App\drvregisters;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -13,7 +13,7 @@ class DriverBookingController extends Controller
 {
     
     public function index2($id){
-        $driver = Drivers::find($id);
+        $driver = drvregisters::find($id);
         return view('tourist.booking_form.driver_booking',compact('driver'));
     }
 

@@ -121,6 +121,10 @@ Route::resource('drivers','DriversController');
 Route::resource('driverbooking' , 'DriverBookingController');
 Route::get('/driverbooks/{id}','DriverBookingController@index2');
 
+Route::resource('equipment','EquipmentController');
+Route::resource('equipmentbooking' , 'EquipmentBookingController');
+Route::get('/equipmentbooks/{id}','EquipmentBookingController@index2');
+
 
 //Route::get('/status/{id}','FeedbackController@index3')->name('status');
 Route::get('/status_guide/{id}','FeedbackGuideController@index2')->name('status_guide');
@@ -136,5 +140,8 @@ Route::post('/booking_form/feedback_driver' , 'FeedbackDriverController@create')
 //     return view('tourist.status.waiting');
 // })->name('status'); 
 
+Route::get('/status_equipment/{id}','FeedbackEquipmentController@index2')->name('status_equipment');
+Route::get('/feedbackmsg_equipment/{id}' , 'FeedbackEquipmentController@index1');
 
+Route::post('/booking_form/feedback_equipment' , 'FeedbackEquipmentController@create');
 

@@ -80,9 +80,9 @@ body {
                   <div class="border-bottom text-center pb-4">
                     <img src="../img/boy4.jpg" alt="profile" class="img-lg rounded-circle mb-3">
                     <div class="mb-3">
-                    <h3>{{ $driver -> name}}</h3>
+                    <h3>{{ $equipment -> name}}</h3>
                       <div class="d-flex align-items-center justify-content-center">
-                        <h5 class="mb-0 mr-2 text-muted">{{ $driver -> area}}</h5>
+                        <h5 class="mb-0 mr-2 text-muted">{{ $equipment -> area}}</h5>
                         </div>
                       </div>
                        
@@ -130,20 +130,13 @@ body {
                   
                   <div class="py-4">
                     
+                    
                     <p class="clearfix">
                       <span class="float-left">
-                        Age
+                        E-mail
                       </span>
                       <span class="float-right text-muted">
-                      {{$driver->age}}
-                      </span>
-                    </p>
-                    <p class="clearfix">
-                      <span class="float-left">
-                        Gender
-                      </span>
-                      <span class="float-right text-muted">
-                      {{$driver->gender}}
+                       {{$equipment->email}}   
                       </span>
                     </p>
 
@@ -152,31 +145,24 @@ body {
                         Mobile
                       </span>
                       <span class="float-right text-muted">
-                      {{$driver->contact}}
+                       {{$equipment->contact}}  
                       </span>
                     </p>
                     <p class="clearfix">
                       <span class="float-left">
-                        Licence-no
+                        Address
                       </span>
                       <span class="float-right text-muted">
-                      {{$driver->licence}}
+                      {{$equipment->address}}
                       </span>
                     </p>
-                    <p class="clearfix">
-                      <span class="float-left">
-                        Vehicle-no
-                      </span>
-                      <span class="float-right text-muted">
-                      {{$driver->vehicle_no}}
-                      </span>
-                    </p>
+                   
                     <p class="clearfix">
                       <span class="float-left">
                         Charge per day
                       </span>
                       <span class="float-right text-muted">
-                        <a href="#">{{$driver->price}}</a>
+                        <a href="#">1500</a>
                       </span>
                     </p>
                 
@@ -186,7 +172,7 @@ body {
                 </div>
             </div>
            <!--    <a href="/booking_form/driver_booking" class="btn btn-success btn-lg">Book now</a>   -->
-            <a href="/driverbooks/{{$driver->id}}" class="btn btn-success btn-lg">Book now</a>
+            <a href="/equipmentbooks/{{$equipment->id}}" class="btn btn-success btn-lg">Book now</a>
 
                <div class="col-lg-8">
                   

@@ -43,7 +43,7 @@
 						<div class="form-header">
 							<h1>Service Finiesd</h1>
 						</div>  
-                        <button class="submit-btn"><a href="/feedbackmsg_driver/{{$driver->id}}" ><h4>Rate your service</h4></a></button>
+                        <button class="submit-btn"><a href="/feedbackmsg_equipment/{{$equipment->id}}" ><h4>Rate your service</h4></a></button>
 						
 					</div>
 				</div>

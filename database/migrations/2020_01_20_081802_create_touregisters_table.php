@@ -15,11 +15,15 @@ class CreateTouregistersTable extends Migration
     {
         Schema::create('touregisters', function (Blueprint $table) {
             $table->bigIncrements('id');
+           // $table->unsignedInteger('user_id');
             $table->string('email')->unique();
             $table->string('name');
             $table->string('country')->nullable();
             $table->integer('cotact')->nullable();
+            $table->string('image_path');
             $table->timestamps();
+
+           // $table->index('user_id');
         });
     }
 
