@@ -1,7 +1,7 @@
 @extends('layouts.free')
 
 @section('content')
-@include('includes.booking_head')
+@include('includes.guide_booking_head')
 
 
 <body>
@@ -43,17 +43,17 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
+						<div class="row">
+									<!--<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Guide ID</span>
-										<input id="guide_id" name="guide_id" class="form-control" value= "{{$guide->id}}" >
+										<input id="guide_id" name="guide_id" type='hidden' class="form-control" value= "{{$guide->id}}" >
 									</div>
 									
 								</div>
 								
-							</div>
-
+							</div> -->
+							<input id="guide_id" name="guide_id" type='hidden' class="form-control" value= "{{$guide->id}}" >
 							<div class="row">
                             
                                  <div class="col-md-6">
@@ -134,9 +134,10 @@
 								 	                              
 							</div>
 						</form>
+					
 					</div>
 					
-				</div>
+				</div>  
 			</div>
 		</div>
 	</div>

@@ -14,8 +14,7 @@ class CreateEqpregistersTable extends Migration
     public function up()
     {
         Schema::create('eqpregisters', function (Blueprint $table) {
-            $table->bigIncrements('id');
-           // $table->unsignedInteger('user_id');
+            $table->unsignedInteger('id');
             $table->string('email')->unique();
             $table->string('name');
             $table->string('address')->nullable();

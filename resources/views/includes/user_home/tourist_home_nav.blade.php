@@ -8,6 +8,7 @@
                         
                         <li class="nav-item"><a href="/user_profile" class="nav-link disable">My profile</a>  </li>
                         <li class="nav-item"><a href="/user_profile_edit" class="nav-link">Edit Profile</a>  </li>
+                        <li class="nav-item"><a href="/search_page" class="nav-link">Search</a>  </li>
                         <li class="nav-item "><a href="" class="nav-link">Messages</a>  </li>
                         <li class="nav-item"><a href="" class="nav-link">Notifications</a>  </li>
                         

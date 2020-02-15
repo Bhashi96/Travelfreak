@@ -2,32 +2,9 @@
 
 @section('content')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap.min.css"/>
-<link rel="stylesheet" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" href="css/flaticon.css"/>
-<link rel="stylesheet" href="css/owl.carousel.css"/>
-<link rel="stylesheet" href="css/magnific-popup.css"/>
-<link rel="stylesheet" href="css/style.css"/>
-
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<!--upload image-->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
-    <style>
+<style>
         body{margin-top:20px;}
 
 body {
@@ -76,13 +53,13 @@ body {
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-lg-4">
-                  <div class="border-bottom text-center pb-4">
-                    <img src="../images/guide{{$guide->id}}.jpg" alt="profile" class="img-lg rounded-circle mb-3">
-                    <div class="mb-3">
+                <div class="col-lg-8">
+                  <div class="border-bottom text-center pb-6">
+                    <img src="../images/guide/guide{{$guide->id}}.jpg" alt="profile" class="img-rounded " width="251" height="161"  >
+                    <div class="mb-6">
                       <h3>{{ $guide -> name}}</h3>
                       <div class="d-flex align-items-center justify-content-center">
-                        <h5 class="mb-0 mr-2 text-muted">{{$guide->experience}} of experience</h5>
+                        <h5 class="mb-0 mr-2 text-muted">{{$guide->area}}</h5>
                         </div>
                       </div>
                        
@@ -105,8 +82,10 @@ body {
                         
                     </p>
                     <div class="d-flex justify-content-center">
-                      <button class="btn btn-success mr-1">Add</button>
-                      <button class="btn btn-success">Notifications</button>
+                     
+                      <button class="btn btn-success"> 
+                        <a href="/guidebooks/{{$guide->id}}" class="btn btn-success btn-lg">Book now</a>
+                      </button>
                     </div>
                   </div>
                   
@@ -140,10 +119,10 @@ body {
                     </p>
                     <p class="clearfix">
                       <span class="float-left">
-                        languages 
+                       Gender
                       </span>
                       <span class="float-right text-muted">
-                      {{$guide->language}}
+                      {{$guide->gender}}
                       </span>
                     </p>
                     <p class="clearfix">
@@ -151,7 +130,31 @@ body {
                         Charge per day 
                       </span>
                       <span class="float-right text-muted">
-                        <a href="#">   {{$guide->chargeperday}} </a>
+                       {{$guide->price}} 
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Guide Licence  
+                      </span>
+                      <span class="float-right text-muted">
+                         {{$guide->licence}} 
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        E-mail  
+                      </span>
+                      <span class="float-right text-muted">
+                         {{$guide->email}} 
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Mobile no  
+                      </span>
+                      <span class="float-right text-muted">
+                         {{$guide->contact}} 
                       </span>
                     </p>
                 
@@ -160,9 +163,9 @@ body {
                     </div>
                 </div>
             </div>
-            <!-- <a href="{{route('guidebooking.index',5)}}" class="btn btn-success btn-lg">Book now</a>  -->
-            <a href="/guidebooks/{{$guide->id}}" class="btn btn-success btn-lg">Book now</a>
-
+           
+           
+           
             
                <div class="col-lg-8">
                   
@@ -178,19 +181,24 @@ body {
                     </ul>
                   </div>
                   <div class="profile-feed">
+
+                  @foreach ($rate as $key =>$value)
+
                     <div class="d-flex align-items-start profile-feed-item">
                       <img src="../img/boy3.jpg" alt="profile" class="img-sm rounded-circle">
                       <div class="ml-4">
                         <h6>
-                          James Henry
+                        {{$rate->tourist_id}} 
+                       
+                        echo $rate->rate;
                           <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
                         </h6>
                         <p>
-                          One of the best drivers I have ever seen in Sri Lanka
+                        {{$rate->comment}} 
                         </p>
                         <p class="small text-muted mt-2 mb-0">
                           <span>
-                            <i class="mdi mdi-star mr-1"></i>4
+                            <i class="mdi mdi-star mr-1"></i> {{$rate->rate}} 
                           </span>
                           <span class="ml-2">
                             <i class="mdi mdi-comment mr-1"></i>11
@@ -201,53 +209,8 @@ body {
                         </p>
                       </div>
                     </div>
-                    <div class="d-flex align-items-start profile-feed-item">
-                      <img src="../img/boy1.jpg" alt="profile" class="img-sm rounded-circle">
-                      <div class="ml-4">
-                        <h6>
-                          Logan Reggle
-                          <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                        </h6>
-                        <p>
-                            It's superb
-                        </p>                            
-                        <p class="small text-muted mt-2 mb-0">
-                          <span>
-                            <i class="mdi mdi-star mr-1"></i>4
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-comment mr-1"></i>11
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-reply"></i>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-start profile-feed-item">
-                      <img src="../img/girl1.jpg" alt="profile" class="img-sm rounded-circle">
-                      <div class="ml-4">
-                        <h6>
-                          Cristina Shanel
-                          <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                        </h6>
-                        <p>
-                          Superb service. Keep it up!
-                        </p>
-                                                                                
-                        <p class="small text-muted mt-2 mb-0">
-                          <span>
-                            <i class="mdi mdi-star mr-1"></i>4
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-comment mr-1"></i>11
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-reply"></i>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
+
+                    @endforeach     
                   </div>
                 </div>
               </div>

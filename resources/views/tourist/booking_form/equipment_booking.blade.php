@@ -1,7 +1,7 @@
 @extends('layouts.free')
 
 @section('content')
-@include('includes.booking_head')
+@include('includes.equipment_booking_head')
 
 
 <body>
@@ -43,61 +43,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Equipment ID</span>
-										<input id="equipment_id" name="equipment_id" class="form-control" value= "{{$equipment->id}}" >
-									</div>
-									
-								</div>
+							
 								
-							</div>
+							<input id="equipment_id" name="equipment_id" class="form-control" type='hidden' value= "{{$equipment->id}}" >
 
 							<div class="row">
-                            
-                                <!--  <div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">No.of.people</span>
-                                        <input type="text" class="form-control" id="nop" name="nop" required>
-									</div>
-								</div>  
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">District</span>
-										<select id="district" name="district" class="form-control" required>
-											<option>Ampara</option>
-											<option>Anuradhapura</option>
-											<option>Badulla</option>
-                                            <option>Batticaloa</option>
-											<option>Colombo</option>
-											<option>Galle</option>
-                                            <option>Gampaha</option>
-											<option>Hambantota</option>
-											<option>Jaffna</option>
-                                            <option>Kandy</option>
-											<option>Kegalle</option>
-											<option>Kilinochchi</option>
-                                            <option>Kurunegala</option>
-                                            <option>Mannar</option>
-                                            <option>Matela</option>
-                                            <option>Matara</option>
-                                            <option>Monaragala</option>
-                                            <option>Mullaitivu</option>
-                                            <option>Nuwara Eliya</option>
-                                            <option>Puttalam</option>
-                                            <option>Ratnapura</option>
-                                            <option>Trincomalee</option> 
-                                            <option>Vavuniya</option>
-                                            
-
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>  -->
-								
-
                                 <div class="col-md-6">
                                   <div class="form-group">
                                      <span class="form-label">Add a Note</span>

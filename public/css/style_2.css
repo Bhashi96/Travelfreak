@@ -166,3 +166,11 @@
 	text-transform: capitalize;
 	border-radius: 3px;
 }
+.stretched-link{
+	color: #000000;
+	font-size: 14px;
+	font-weight: 700;
+	margin-bottom: 3px;
+	display: inline-block;
+	text-transform: capitalize;
+}

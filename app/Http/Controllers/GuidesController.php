@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\gudregisters;
+use App\FeedbackGuide;
 class GuidesController extends Controller
 {
     /**
@@ -47,8 +49,11 @@ class GuidesController extends Controller
      */
     public function show($id)
     {
-        $guide = gudregisters::find($id);
-        return view('pages.guide_profile',compact('guide'));
+       
+         $guide = gudregisters::find($id);
+         $rate = FeedbackGuide::find($id);
+        // $rate = DB::table('feedback_guides')->where('guide_id', 'id');
+        return view('pages.guide_profile',compact('guide','rate'));
     }
 
     /**
