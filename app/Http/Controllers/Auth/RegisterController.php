@@ -129,6 +129,7 @@ class RegisterController extends Controller
             $dreg->age=$data['age'];
             $dreg->licence=$data['licence'];
             $dreg->v_reg_no=$data['vrn'];
+            $greg->area=$data['area'];
             $dreg->image_path='images/user.png';
             
 

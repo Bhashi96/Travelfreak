@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tourism Area') }}</label>
+                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Tourism Area') }}</label>
 
                             <div class="col-md-6">
                             <select id="inputProvince" class="form-control" name="area">
@@ -164,53 +164,6 @@
                                 @enderror
                             </div>
                         </div>
- <!--
-                        <div class="form-group row">
-                            <label for="charge" class="col-md-4 col-form-label text-md-right">{{ __('Languages') }}</label>
-
-                            <div class="col-md-6">
-                            <div class="custom-control custom-checkbox custom-control-inline">
-                            <input type="checkbox" class="custom-control-input" id="englishlan">
-                            <label class="custom-control-label" for="englishlan">English</label>
-                            </div>
-      
-                    
-                            <div class="custom-control custom-checkbox custom-control-inline">
-                            <input type="checkbox" class="custom-control-input" id="defaultInline2">
-                            <label class="custom-control-label" for="defaultInline2">German</label>
-                            </div>
-      
-                             <div class="custom-control custom-checkbox custom-control-inline">
-                            <input type="checkbox" class="custom-control-input" id="defaultInline3">
-                            <label class="custom-control-label" for="defaultInline3">French</label>
-                            </div>
-                            
-                            
-                             <div class="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" class="custom-control-input" id="defaultInline4">
-                                <label class="custom-control-label" for="defaultInline4">Jappenise</label>
-                            </div>
-                            <div class="custom-control custom-checkbox custom-control-inline">
-                                 <input type="checkbox" class="custom-control-input" id="defaultInline5">
-                                <label class="custom-control-label" for="defaultInline5">Korean</label>
-                            </div>
-                             <div class="custom-control custom-checkbox custom-control-inline">
-                                 <input type="checkbox" class="custom-control-input" id="defaultInline6">
-                                 <label class="custom-control-label" for="defaultInline6">Tamil</label>
-                             </div>
-
-                            
-                            <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="defaultInline7">
-                                    <label class="custom-control-label" for="defaultInline7">Chinesse</label>
-                             </div>
-                             <div class="custom-control custom-checkbox custom-control-inline">
-                                     <input type="checkbox" class="custom-control-input" id="defaultInline8">
-                                     <label class="custom-control-label" for="defaultInline8">Latin</label>
-                             </div>
-
-                            </div>
-                        </div>-->
 
                         <div class="form-group row">
                             <label for="languages" class="col-md-4 col-form-label text-md-right">{{ __('languages') }}</label>
