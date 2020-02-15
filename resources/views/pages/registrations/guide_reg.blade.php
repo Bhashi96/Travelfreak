@@ -118,15 +118,32 @@
 
                             <div class="col-md-6">
                             <select id="inputProvince" class="form-control" name="area">
-                                        <option selected>Southern Province</option>
-                                        <option>Western Province</option>
-                                        <option>North Province</option>
-                                        <option>Eastern Province</option>
-                                        <option>North Eastern Province Province</option>
-                                        <option>Middle Province</option>
-                                        <option>Western Province</option>
-                                        <option>Western Province</option>
-                                        <option>Western Province</option>
+                                        <option selected>Ampara</option>
+                                        <option>Anuradhapura</option>
+                                        <option>Badulla</option>
+                                        <option>Batticaloa</option>
+                                        <option>Colombo</option>
+                                        <option>Galle</option>
+                                        <option>Gampaha</option>
+                                        <option>Hambantota</option>
+                                        <option>Jaffna</option>
+                                        <option>Kalutara</option>
+                                        <option>Kandy</option>
+                                        <option>Kegalle</option>
+                                        <option>Kilinochchi</option>
+                                        <option>Kurunegala</option>
+                                        <option>Mannar</option>
+                                        <option>Matale</option>
+                                        <option>Matara</option>
+                                        <option>Monaragala</option>
+                                        <option>Mullaitivu</option>
+                                        <option>Nuwara Eliya</option>
+                                        <option>Polonnaruwa</option>
+                                        <option>Puttalam</option>
+                                        <option>Ratnapura</option>
+                                        <option>Trincomalee</option>
+                                        <option>Vavuniya</option>
+                                        
                                     </select>
                             </div>
                         </div>
@@ -147,7 +164,7 @@
                                 @enderror
                             </div>
                         </div>
- 
+ <!--
                         <div class="form-group row">
                             <label for="charge" class="col-md-4 col-form-label text-md-right">{{ __('Languages') }}</label>
 
@@ -193,7 +210,22 @@
                              </div>
 
                             </div>
+                        </div>-->
+
+                        <div class="form-group row">
+                            <label for="languages" class="col-md-4 col-form-label text-md-right">{{ __('languages') }}</label>
+
+                            <div class="col-md-6">
+                                
+                                <textarea class="form-control rounded-0" id="exampleFormControllan1" rows="2"class="form-control @error('languages') is-invalid @enderror" name="languages" value="{{ old('languages') }}" required autocomplete="languages" autofocus></textarea>
+                                @error('languages')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="exp" class="col-md-4 col-form-label text-md-right">{{ __('Experience') }}</label>

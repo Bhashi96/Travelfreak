@@ -99,6 +99,7 @@ class RegisterController extends Controller
         $treg->name=$data['name'];
        
         $treg->country=$data['country'];
+        $treg->contact=$data['contact'];
         $treg->image_path='images/user.png';
         $treg->save();
 
@@ -113,6 +114,7 @@ class RegisterController extends Controller
             $greg->age=$data['age'];
             $greg->licence=$data['licence'];
             $greg->area=$data['area'];
+            $greg->languages=$data['languages'];
             $greg->image_path='images/user.png';
             $greg->price=$data['charge'];
 
