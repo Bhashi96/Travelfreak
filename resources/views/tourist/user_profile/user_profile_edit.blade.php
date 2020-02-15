@@ -7,7 +7,7 @@
 <div class="container">
     <h1>Edit Profile</h1>
   	<hr>
-    <form class="form-horizontal" role="form" method="post" action="{{   route( 'update-tourist',['id'=>Auth::user()->id] )   }}">  
+    <form class="form-horizontal" role="form" method="post" action="{{   route( 'update-tourist',['id'=>Auth::user()->id] )   }}" enctype="multipart/form-data">  
     @csrf
     @method('put')
 	  <div class="row">

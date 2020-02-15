@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -87,24 +88,24 @@ class RegisterController extends Controller
 
 
     {
+        $count = DB::table('users')->count();
+
         if($data['user_type']=="tou"){
 
 
         $treg=new touregister;
+        $treg->id=$count+1;
         $treg->email=$data['email'];
         $treg->name=$data['name'];
        
         $treg->country=$data['country'];
-<<<<<<< HEAD
         $treg->image_path='images/user.png';
-=======
-        $treg->contact=$data['contact'];
->>>>>>> 3bd63f540e82821516e74ff92b9ea211d83c1b4e
         $treg->save();
 
 
         }else if($data['user_type']=="gud"){
             $greg=new gudregisters;
+            $greg->id=$count+1;
             $greg->email=$data['email'];
             $greg->name=$data['name'];
             $greg->contact=$data['contact'];
@@ -118,6 +119,7 @@ class RegisterController extends Controller
             $greg->save();
         }else if($data['user_type']=="drv"){
             $dreg=new drvregisters;
+            $dreg->id=$count+1;
             $dreg->email=$data['email'];
             $dreg->name=$data['name'];
             $dreg->contact=$data['contact'];
@@ -132,6 +134,7 @@ class RegisterController extends Controller
         }else{
 
             $ereg=new eqpregisters;
+            $ereg->id=$count+1;
             $ereg->email=$data['email'];
             $ereg->name=$data['name'];
             $ereg->contact=$data['contact'];

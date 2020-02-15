@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\DriverBooking;
-use App\drvregisters;
+use App\eqpregisters;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -13,8 +13,8 @@ class DriverBookingController extends Controller
 {
     
     public function index2($id){
-        $driver = drvregisters::find($id);
-        return view('tourist.booking_form.driver_booking',compact('driver'));
+        $driver = eqpregisters::find($id);
+        return view('tourist.booking_form.eqp_booking',compact('eqp'));
     }
 
     public function Validator(array $data)
@@ -22,7 +22,7 @@ class DriverBookingController extends Controller
         return Validator::make($data, [
            
             'tourist_id'=>'required',
-            'driver_id'=>'required',
+            'eqp_id'=>'required',
             'from'=> 'required',
             'to'=> 'required',
             'date'=> 'required',

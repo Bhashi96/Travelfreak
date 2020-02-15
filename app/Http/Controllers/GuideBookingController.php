@@ -16,6 +16,11 @@ class GuideBookingController extends Controller
         return view('tourist.booking_form.guide_booking',compact('guide'));
     }
     
+   /* public function index3($id){
+        $book = GuideBooking::find($id);
+        return view('tourist.status.waiting_guide',compact('book'));
+    } */
+    
 
     
     /**
@@ -28,13 +33,13 @@ class GuideBookingController extends Controller
     public function create(GuideBookingRequest $request)
     {
 
-      /*  $this -> validate($request,[
-            'start_date' =>'required|date|afer:tomorrow',
+        $this -> validate($request,[
+            /*'start_date' =>'required|date|afer:tomorrow',
             'end_date' =>'required|date|after:start_date',
             'district' =>'required',
             'nop' =>'min:1|max:20|numeric',
-            'note' =>'max:255',
-        ]);  */
+            'note' =>'max:255', */
+        ]);  
 
         $booking =new GuideBooking;
         $booking->tourist_id = Auth::user()->id;

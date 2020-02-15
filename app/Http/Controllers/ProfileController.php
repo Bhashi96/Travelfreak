@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\touregister;
 use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Storage; 
 
 class ProfileController extends Controller
 {
@@ -38,14 +39,28 @@ class ProfileController extends Controller
          //   'image' => 'required',
         ]);
 
-         //   $image_path = request('image')->create('uploads', 'public');
+       
+        
+           
         //$user = User::find($id);
         $user = touregister::find(Auth::user()->id);
+
+       // $image ->request('image')->store('public');
+      /* if($request->hasfile('image')) 
+
+       $image_path = $request->image->getClientOriginalName();
+       $request->image->store('public/upload',$image_path);  */
+
+       $path = $request->file('image')->store('images');
+
+       
+    //   $path = Storage::putFile('images', $request->file('image'));
+
         $user->name= $request->get('name');  
         $user->email = $request->get('email');
         $user->country= $request->get('country');  
         $user->cotact = $request->get('cotact');
-        //$user->image_path =$image_path;
+        $user->image_path =$path;
       //  $user->password = Hash::make($request->get('password'));
         
       /*  if($request->hasfile('image')) {
@@ -58,9 +73,9 @@ class ProfileController extends Controller
         else{
 
             return $request;
-        } */
+        } */ 
         $user->save();
-        
+    
         return redirect('/user_profile');
         
     }

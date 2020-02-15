@@ -109,6 +109,14 @@ Route::get('/root', function () {
     return view('pages.home1');
 });
 
+/*
+Route::get('/search_page' , function(){
+    return view('tourist.home.search_page');
+}); */
+
+//Route::resource('search','SearchController');
+//Route::get('search/{}','SearchController@index');
+Route::post('/search_page', 'SearchController@filter');
 
 Route::get('/user_profile', 'ProfileController@index1');
 

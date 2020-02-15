@@ -1,7 +1,7 @@
 @extends('layouts.free')
 
 @section('content')
-@include('includes.booking_head')
+@include('includes.driver_booking_head')
 
 
 <body>
@@ -62,13 +62,14 @@
 									</div>
 								</div>
 
-								<div class="col-md-6">
+				  	<!--	   <div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Driver Id</span>
 										<input id="driver_id" name="driver_id" class="form-control" value= "{{$driver->id}}" >							
 									</div>
-								</div>
+								</div>   -->
 								
+								<input id="driver_id" name="driver_id" class="form-control" type='hidden' value= "{{$driver->id}}" >	
 
                                 <div class="col-md-6">
                                   <div class="form-group">
