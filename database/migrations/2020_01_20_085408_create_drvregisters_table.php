@@ -22,7 +22,10 @@ class CreateDrvregistersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('area')->nullable();
             $table->string('licence')->nullable();
+            $table->string('v_brand')->nullable();
+            $table->string('v_owner')->nullable();
             $table->string('v_reg_no')->nullable();
+            $table->Integer('v_seats')->nullable();
             $table->string('image_path')->nullable()->default(1);
             $table->boolean('isavailable')->default(1);
 
