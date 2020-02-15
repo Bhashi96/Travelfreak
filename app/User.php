@@ -53,4 +53,10 @@ class User extends Authenticatable
     public function eqpregister(){
         return $this->hasMany(eqpregister::class);
     }
+
+    public function threads(){
+
+        return $this->hasmany(thread::class);
+    }
+
 }

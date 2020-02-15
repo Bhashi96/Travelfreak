@@ -7,9 +7,10 @@
 </head>
 <body>
     @include('includes.navbar')
+    @include('includes.spnavbar')
     
 <div class="container mt-3">
-<h1>Travel freak Forum</h1>
+<h3>Travel freak Addvertisement Forum</h3>
 <br>
 
 <div class="row">
@@ -18,7 +19,12 @@
                     <div class="col-md-4"><h4 class="main-content-heading">@yield('heading')</h4></div>
                     <div class="col-md-3"></div>
                     <div class="col-md-2">
-                         <a class="btn btn-primary" href="{{route('thread.create')}}">Create Thread</a>
+                    
+                   
+                    <a class="btn btn-primary" href="{{route('thread.create')}}">Create Addvertisement</a>
+                
+                   
+                         
                     </div>
                 
         
@@ -27,21 +33,26 @@
 <div class ="row">
      <div class="col-md-3">
           <ul class="list-group">
-               <a href ="/forum2" class="list-group-item">
-               <span class="badge">14</span>
-               All threads
+               <a href ="/threads/forumall" class="list-group-item">
+               <span class="badge"></span>
+               All Adds
                </a>
-               <a href ="#" class="list-group-item">
-               <span class="badge">3</span>
-               Guides
+               <a href ="/threads/forumapart" class="list-group-item">
+               <span class="badge"></span>
+               Apartments
                </a>
-               <a href ="#" class="list-group-item">
-               <span class="badge">3</span>
-               Drivers
+              
+               <a href ="/threads/forumvehicle" class="list-group-item">
+               <span class="badge"></span>
+               Vehicles
                </a>
-               <a href ="#" class="list-group-item">
-               <span class="badge">2</span>
-               EQP
+               <a href ="/threads/forumeqp" class="list-group-item">
+               <span class="badge"></span>
+               Equipments
+               </a>
+               <a href ="/threads/forumothers" class="list-group-item">
+               <span class="badge"></span>
+               Others
                </a>
           </ul>
       </div>
