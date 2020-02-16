@@ -71,12 +71,26 @@ Route::group(['middleware' => ['auth','gud']], function(){
     Route::get('/eqphome', function () {
         return view('pages.eqphome');
     });
-    Route::get('/adminhome', function () {
-        return view('pages.adminhome');
-    });
+
+     Route::get('/admin_home', 'AdminController@index');
+    
     
 
 });
+
+
+Route::get('/tourist_delect/{id}','AdminController@tourist_delete');
+Route::get('/guide_delect/{id}','AdminController@guide_delete');
+Route::get('/driver_delect/{id}','AdminController@driver_delete');
+Route::get('/equipment_delect/{id}','AdminController@equipment_delete');
+
+
+
+Route::get('/admin_guide_booking_results', 'AdminController@booking_guide');
+Route::get('/admin_driver_booking_results', 'AdminController@booking_driver');
+Route::get('/booking_equipment', 'AdminController@booking_equipment');
+
+//Route::get('/admin_home', 'AdminController@index');
 
 
 Route::get('/serviceprovider/drveditdetails', function () {
@@ -121,7 +135,7 @@ Route::post('/search_page', 'SearchController@filter');
 Route::get('/user_profile', 'ProfileController@index1');
 
 Route::get('/user_profile_edit','ProfileController@index2');
-Route::put('/user_profile_edit/{id}','ProfileController@update')->name('update-tourist');
+Route::post('/user_profile_edit/{id}','ProfileController@update')->name('update-tourist');
 
 
 Route::resource('guides','GuidesController');
@@ -138,7 +152,7 @@ Route::get('/equipmentbooks/{id}','EquipmentBookingController@index2');
 
 
 //Route::get('/status/{id}','FeedbackController@index3')->name('status');
-Route::get('/status_guide/{id}','FeedbackGuideController@index2')->name('status_guide');
+Route::get('/status_guide/{id,id2}','FeedbackGuideController@index2')->name('status_guide');
 Route::get('/feedbackmsg_guide/{id}' , 'FeedbackGuideController@index1');
 //Route::get('/feedbackmsg/{id}' , 'FeedbackController@index2');
 Route::post('/booking_form/feedback_guide' , 'FeedbackGuideController@create');

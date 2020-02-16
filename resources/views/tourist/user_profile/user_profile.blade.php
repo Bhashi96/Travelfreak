@@ -8,8 +8,9 @@
 <div class="container">
     <div class="span3 well">
         <center>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="uploads/{{ $user->image_path}}" name="aboutme" width="300" height="300" class="img-circle"></a>
-        <h3>{{ $user->name}}</h3>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="images/tourist/{{ $user->image_path}}" name="aboutme" width="300" height="300" class="img-circle"></a>
+       <br><br>
+        <h3>{{ $user->name}}        </h3>
         <em></em>
 		   </center>
     </div>
@@ -23,7 +24,7 @@
                     </div>
                 <div class="modal-body">
                     <center>
-                    <img src=images/tourist/tourist{{Auth::user()->id}}.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <img src="images/tourist/{{$user->image_path}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     <h3 class="media-heading"> {{ $user->name}}</h3>
                     <hr>
                     <span><strong>Country: </strong></span>

@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\FeedbackGuide;
 use App\gudregisters;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -26,10 +27,12 @@ class FeedbackGuideController extends Controller
 
     
    
-    public function index2($id){
+    public function index2($id,$id2){
        
         $guide = gudregisters::find($id);
-        return view('tourist.status.waiting_guide',compact('guide'));
+        $booking = DB::table('guide_bookings')->where('guide_id', 'id')
+                                              ->where('tourist_id', 'id2');
+        return view('tourist.status.waiting_guide',compact('guide','booking'));
     }
 
     public function Validator(array $data)

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('includes.head')
+    @include('includes.admin_head')
+  
+
     @include('includes.navbar')
+    @include('includes.admin_nav')
    
 </head>
 <body>
