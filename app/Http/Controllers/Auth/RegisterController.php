@@ -99,12 +99,7 @@ class RegisterController extends Controller
         $treg->name=$data['name'];
        
         $treg->country=$data['country'];
-<<<<<<< HEAD
         $treg->image_path='user.png';
-=======
-        $treg->contact=$data['contact'];
-        $treg->image_path='images/user.png';
->>>>>>> 6e228ce968a3c599642aeed3c60b9e19f4ba2eeb
         $treg->save();
 
 
@@ -118,12 +113,7 @@ class RegisterController extends Controller
             $greg->age=$data['age'];
             $greg->licence=$data['licence'];
             $greg->area=$data['area'];
-<<<<<<< HEAD
             $greg->image_path='user.png';
-=======
-            $greg->languages=$data['languages'];
-            $greg->image_path='images/user.png';
->>>>>>> 6e228ce968a3c599642aeed3c60b9e19f4ba2eeb
             $greg->price=$data['charge'];
 
             $greg->save();
@@ -137,12 +127,7 @@ class RegisterController extends Controller
             $dreg->age=$data['age'];
             $dreg->licence=$data['licence'];
             $dreg->v_reg_no=$data['vrn'];
-<<<<<<< HEAD
             $dreg->image_path='user.png';
-=======
-            $greg->area=$data['area'];
-            $dreg->image_path='images/user.png';
->>>>>>> 6e228ce968a3c599642aeed3c60b9e19f4ba2eeb
             
 
             $dreg->save();

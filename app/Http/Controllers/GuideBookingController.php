@@ -38,11 +38,12 @@ class GuideBookingController extends Controller
     {
 
         $this -> validate($request,[
-            /*'start_date' =>'required|date|afer:tomorrow',
+            'start_date' =>'required|date|afer:tomorrow',
+           // 'start_date' => 'required|date|after:tomorrow',
             'end_date' =>'required|date|after:start_date',
             'district' =>'required',
             'nop' =>'min:1|max:20|numeric',
-            'note' =>'max:255', */
+            'note' =>'max:255', 
         ]);  
 
         $booking =new GuideBooking;
