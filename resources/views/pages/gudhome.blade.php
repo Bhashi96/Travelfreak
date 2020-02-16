@@ -7,7 +7,6 @@
         <div class="col-md-8">
             <div class="card">
                
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -70,12 +69,15 @@ body {
                   <div class="border-bottom text-center pb-4">
                     <img src="../img/boy1.jpg" alt="profile" class="img-lg rounded-circle mb-3">
                     <div class="mb-3">
-                      <h3>S A M Pathirana</h3>
-                      <div class="d-flex align-items-center justify-content-center">
+
+                     <h3>{{Auth::user()->name}}</h3>
+
+
+                      <!-- <div class="d-flex align-items-center justify-content-center">
                         <h5 class="mb-0 mr-2 text-muted">2 years of experience</h5>
-                        </div>
+                        </div> -->
                       </div>
-                      <div class="container">
+                      <!-- <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="star-rating">
@@ -88,15 +90,15 @@ body {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    </div> 
                     <p class="w-75 mx-auto mb-3">
                         
                     </p>
-                    <div class="d-flex justify-content-center">
+                    <!-- <div class="d-flex justify-content-center">
                       <button class="btn btn-success mr-1">Add</button>
                       <button class="btn btn-success">Notifications</button>
-                    </div>
+                    </div> -->
                   </div>
                   
                   <div class="border-bottom py-4">
@@ -123,8 +125,8 @@ body {
                       <span class="float-left">
                         Age
                       </span>
-                      <span class="float-right text-muted">
-                        33 years
+                      <span class="float-right">
+                      {{Auth::user()->gud->age}}
                       </span>
                     </p>
                     <p class="clearfix">

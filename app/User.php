@@ -52,7 +52,19 @@ class User extends Authenticatable
 
     public function eqpregister(){
         return $this->hasMany(eqpregister::class);
+
+
     }
+
+    
+    public function drv(){
+        return $this->hasOne('App\drvregisters','email','email');
+    }
+
+    public function gud(){
+        return $this->hasOne('App\gudregisters','email','email');
+    }
+
 
     public function threads(){
 

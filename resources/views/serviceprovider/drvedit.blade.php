@@ -1,7 +1,6 @@
 @extends('layouts.splayout')
 
 @section('content')
-@csrf
 
 <br><br>
     <div class="container">
@@ -17,50 +16,70 @@
         </div>
       </div>
               
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+      
+      @if(count($errors)>0)
+      <div class="alert alert-danger">
+        <ul>
+        @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+        </ul>
+      </div>
+      @endif
+      @if(\Session::has('success'))
+      <div class="alert alert-success">
+        <p>{{\Session::get('success')}}</p>
+      </div>
+      @endif
+       
+       <!-- edit form column -->
+       
+       
+       <div class="col-md-9 personal-info">
                 
-      <h3>Personal info</h3>
+                <h3>Personal info</h3>
+
+
                 
+      <form method="post" action="{{route('drv.update',['driver'=>Auth::user()->id])}}">    
+      @method('PATCH')
+        {{csrf_field()}}    
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
+            <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-            <input class="form-control" type="text" value="Atharva">
+            <input class="form-control" type="text" name="name" value="{{Auth::user()->name}}">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="Murali">
-            </div>
-          </div>
+          
           <div class="form-group">
             <label class="col-lg-3 control-label">Age:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="{{Auth::user()->drv->age}}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Gender:</label>
             <div class="col-lg-8">
-              <select >
-               <option selected>Male</option>
-               <option>Female</option>
-               <option>Other</option>
-              </select>
+              <input value="{{Auth::user()->drv->gender}}" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="atharva@gmail.com">
+              <input class="form-control" type="text" value="{{Auth::user()->drv->email}}" readonly>
             </div>
           </div>
           <div class="form-group ">
             <label class="col-lg-3 control-label">Contact Number</label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="inputContactNo" placeholder="Contact no">
+              <input type="text" class="form-control" name="contact" id="inputContactNo" placeholder="Contact no" value="{{Auth::user()->drv->contact}}">
+            </div>
+          </div>
+          <div class="form-group ">
+            <label class="col-lg-3 control-label">Licence</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" name="licence" id="inputLicence" placeholder="Licence" value="{{Auth::user()->drv->licence}}">
             </div>
           </div>
           <div class="form-group">
@@ -84,54 +103,32 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Vehicle Brand</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="{{Auth::user()->drv->v_brand}}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Vehicle Register No</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="{{Auth::user()->drv->v_reg_no}}">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Vehicle Owner</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">                               
-            </div>
-          </div>
+         
           <div class="form-group">
             <label class="col-lg-3 control-label">Number of seats</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
+              <input class="form-control" type="text" value="{{Auth::user()->drv->v_seats}}">
             </div>
           </div>
-          <h3>Change Username & Password</h3>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="user">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-          <div class="col-md-8">
-            <input class="form-control" type="password" value="11111122333">
-          </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
-              <input type="reset" class="btn btn-primary" value="Reset">
+          
+              <button type="submit" class="btn btn-primary">Update Details</button>
+              
             </div>
           </div>
         </form>
+        </form>
+
+
+
       </div>
     </div>
     <hr>
@@ -145,4 +142,5 @@
       </div>
     </div>
 </div>
+
 @endsection

@@ -165,7 +165,33 @@
                         </div>
                        
                        
+                        <div class="form-group row">
+                            <label for="brand" class="col-md-4 col-form-label text-md-right">{{ __('Vehicle type') }}</label>
 
+                            <div class="col-md-6">
+                            <select id="inputProvince" class="form-control" name="brand">
+                                        <option selected>Van</option>
+                                        <option>Mini van</option>
+                                        <option>Car</option>
+                                        <option>tuk tuk</option>
+                                        
+                                        
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="seats" class="col-md-4 col-form-label text-md-right">{{ __('No of seats') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="seats" type="text" class="form-control @error('seats') is-invalid @enderror" name="seats" value="{{ old('seats') }}" required autocomplete="seats" autofocus>
+
+                                @error('seats')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         
                       <div class="form-group row">
                            

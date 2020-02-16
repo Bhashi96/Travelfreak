@@ -69,34 +69,20 @@ body {
                   <div class="border-bottom text-center pb-4">
                     <img src="../img/atharva.jpg" alt="profile" class="img-lg rounded-circle mb-3">
                     <div class="mb-3">
-                      <h3>Atharvaa murali</h3>
+                   
+                      <h3>{{Auth::user()->name}}</h3>
+                      
+                      
                       <div class="d-flex align-items-center justify-content-center">
-                        <h5 class="mb-0 mr-2 text-muted">5 years of experience</h5>
+                        
                         </div>
                       </div>
-                      <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="star-rating">
-                                      <span class="fa fa-star-o" data-rating="1"></span>
-                                      <span class="fa fa-star-o" data-rating="2"></span>
-                                      <span class="fa fa-star-o" data-rating="3"></span>
-                                      <span class="fa fa-star-o" data-rating="4"></span>
-                                      <span class="fa fa-star-o" data-rating="5"></span>
-                                      <input type="hidden" name="whatever1" class="rating-value" value="2.56">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                      
+                    </div> 
                     <p class="w-75 mx-auto mb-3">
                         
                     </p>
-                    <div class="d-flex justify-content-center">
-                      <button class="btn btn-success mr-1">Add</button>
-                      <button class="btn btn-success mr-1">Message</button>
-                      <button class="btn btn-success">Notifications</button>
-                    </div>
+                    
                   </div>
                   
                   <div class="border-bottom py-4">
@@ -123,11 +109,11 @@ body {
                       <span class="float-left">
                         Age
                       </span>
-                      <span class="float-right text-muted">
-                        27 years
+                      <span class="float-right">
+                      {{Auth::user()->drv->age}}
                       </span>
                     </p>
-                    <p class="clearfix">
+                    <!-- <p class="clearfix">
                       <span class="float-left">
                         languages 
                       </span>
@@ -142,16 +128,15 @@ body {
                       <span class="float-right text-muted">
                         <a href="#">  Rs.1000 </a>
                       </span>
-                    </p>
-                    
-                  
+                    </p> -->
+    
                     
                         <p class="clearfix">
                             <span class="float-left">
                               Vehicle Brand
                             </span>
                             <span class="float-right text-muted">
-                              <a href="#">  Kia Soul Ev</a>
+                              <a href="#">  {{Auth::user()->drv->v_brand}}</a>
                             </span>
                         </p>
                         <p class="clearfix">
@@ -159,7 +144,7 @@ body {
                               Vehicle Number
                             </span>
                             <span class="float-right text-muted">
-                              <a href="#">  LG64 MGX</a>
+                              <a href="#">  {{Auth::user()->drv->v_reg_no}}</a>
                             </span>
                         </p>
                         <img src="../img/kia_soul_EV.jpg" alt="profile" class="img-lg  mb-3">
@@ -187,6 +172,7 @@ body {
                       <div class="ml-4">
                         <h6>
                           Peeter Patel
+                         
                           <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
                         </h6>
                         <p>
@@ -209,7 +195,7 @@ body {
                       <img src="../img/boy2.jpg" alt="profile" class="img-sm rounded-circle">
                       <div class="ml-4">
                         <h6>
-                          Adhithya Gupta
+                          
                           <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
                         </h6>
                         <p>

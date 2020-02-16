@@ -7,7 +7,7 @@
 </head>
 <body>
     @include('includes.navbar')
-    @include('includes.spnavbar')
+   
     
 <div class="container mt-3">
 <h3>Travel freak Addvertisement Forum</h3>

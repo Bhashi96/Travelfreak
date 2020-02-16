@@ -174,3 +174,11 @@ Route::get('/feedbackmsg_equipment/{id}' , 'FeedbackEquipmentController@index1')
 
 Route::post('/booking_form/feedback_equipment' , 'FeedbackEquipmentController@create');
 
+ 
+Route::resource('serviceprovider','DrvregisterController');
+
+Route::resource('serviceprovider','GudregisterController');
+ 
+Route::patch('/drvedit/{driver}','DrvregisterController@update')->name('drv.update');
+
+Route::patch('/gudedit/{guide}','GudregisterController@update')->name('gud.update');
