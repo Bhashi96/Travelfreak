@@ -14,6 +14,7 @@ class DriverBookingController extends Controller
     
     public function index2($id){
         $driver = eqpregisters::find($id);
+        $drvbooking=DriverBooking::paginate(15);
         return view('tourist.booking_form.eqp_booking',compact('eqp'));
     }
 
@@ -59,5 +60,39 @@ class DriverBookingController extends Controller
 
         return redirect()->route('status_driver', [$num]);
     }
+
+    public function show($id)
+    {
+        //
+    }
+    
+
+    public function edit($id)
+    {
+        //
+        
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\thread  $thread
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+       
+
+        $drvbooking=DriverBooking::find($id);
+        $drvbooking ->book_flag = $request->input('book_flag');
+
+        $drvbooking->save();
+        
+       // $drvbooking->book_flag->update($request->input());
+        return back();
+    }
+
 
 }
