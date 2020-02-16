@@ -28,13 +28,31 @@ Route::get('/login', function () {
     return view('pages.login');
 });
 
-Route::get('/forum2', function () {
-    $thread=App\Thread::paginate(15);
-    return view('pages.forum2',['threads'=>$thread]);
-  //  return view('pages.forum2');
+Route::get('/threads/forumeqp', function () {
+    $threads=App\Thread::paginate(15);
+    return view('threads.forumeqp',['threads'=>$threads]);
 });
 
-//Route::resource('/forum','ThreadController');
+Route::get('/threads/forumall', function () {
+    $threads=App\Thread::paginate(15);
+    return view('threads.forumall',['threads'=>$threads]);
+});
+
+Route::get('/threads/forumvehicle', function () {
+    $threads=App\Thread::paginate(15);
+    return view('threads.forumvehicle',['threads'=>$threads]);
+});
+Route::get('/threads/forumothers', function () {
+    $threads=App\Thread::paginate(15);
+    return view('threads.forumothers',['threads'=>$threads]);
+});
+
+Route::get('/threads/forumapart', function () {
+    $threads=App\Thread::paginate(15);
+    
+    return view('threads.forumapart',['threads'=>$threads]);
+});
+
 Route::resource('/thread','ThreadController');
 
 Route::get('/registrations/driver', function () {

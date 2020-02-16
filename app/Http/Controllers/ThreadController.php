@@ -5,13 +5,23 @@ namespace App\Http\Controllers;
 use App\thread;
 use Illuminate\Http\Request;
 
+
 class ThreadController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
+
+
+     function construct(){
+      //return $this->middleware('auth', ['except' => 'index']);
+      return $this->middleware('auth')->except('index');
+
+     }
     public function index()
     {
         //
@@ -48,11 +58,11 @@ class ThreadController extends Controller
                     'thread'=>'required'
 
             ]);
+                auth()->user()->threads()->create($request->all());
 
+            
 
-            Thread::create($request->all());
-
-            return  back()->withmessage('Thread created successfully');
+            return  back()->withmessage('thread created');
 
 
 
@@ -70,6 +80,7 @@ class ThreadController extends Controller
      */
     public function show(thread $thread)
     {
+        return view("threads.single",['threads'=>$thread]);
         //
     }
 
@@ -82,6 +93,7 @@ class ThreadController extends Controller
     public function edit(thread $thread)
     {
         //
+        return view("threads.edit",['threads'=>$thread]);
     }
 
     /**
@@ -94,6 +106,23 @@ class ThreadController extends Controller
     public function update(Request $request, thread $thread)
     {
         //
+        if(auth()->user()->id !==$thread->user_id){
+            abort( 401,  "unauthorized");
+
+        }
+
+        
+        $this->validate($request,[
+
+            'subject'=>'required',
+            'type'=>'required',
+            'thread'=>'required'
+
+    ]);
+
+            $thread->update($request->all());
+
+            return redirect()->route('thread.show',$thread->id)->withmessge('Thread updated');
     }
 
     /**
@@ -105,5 +134,14 @@ class ThreadController extends Controller
     public function destroy(thread $thread)
     {
         //
+
+        if(auth()->user()->id !==$thread->user_id){
+            abort( 401,  "unauthorized");
+
+        }
+
+        $thread->delete();
+        return redirect()->route('thread.index')->withmessge('Thread Deleted');
+
     }
 }

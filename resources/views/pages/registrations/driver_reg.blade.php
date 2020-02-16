@@ -26,7 +26,42 @@
                                 @enderror
                             </div>
                         </div>
-                       
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
@@ -66,19 +101,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                      
                         <div class="form-group row">
                             <label for="licence" class="col-md-4 col-form-label text-md-right">{{ __('Licence ID') }}</label>
 
@@ -107,28 +130,40 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Tourism Area') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <select id="inputProvince" class="form-control" name="area">
+                                        <option selected>Ampara</option>
+                                        <option>Anuradhapura</option>
+                                        <option>Badulla</option>
+                                        <option>Batticaloa</option>
+                                        <option>Colombo</option>
+                                        <option>Galle</option>
+                                        <option>Gampaha</option>
+                                        <option>Hambantota</option>
+                                        <option>Jaffna</option>
+                                        <option>Kalutara</option>
+                                        <option>Kandy</option>
+                                        <option>Kegalle</option>
+                                        <option>Kilinochchi</option>
+                                        <option>Kurunegala</option>
+                                        <option>Mannar</option>
+                                        <option>Matale</option>
+                                        <option>Matara</option>
+                                        <option>Monaragala</option>
+                                        <option>Mullaitivu</option>
+                                        <option>Nuwara Eliya</option>
+                                        <option>Polonnaruwa</option>
+                                        <option>Puttalam</option>
+                                        <option>Ratnapura</option>
+                                        <option>Trincomalee</option>
+                                        <option>Vavuniya</option>
+                                        
+                                    </select>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-
+                       
                        
 
                         

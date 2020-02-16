@@ -8,4 +8,11 @@ class thread extends Model
 {
     //
     protected $guarded=[];
+
+    
+    public function user(){
+
+        return $this->belongsto( user::class);
+
+}
 }

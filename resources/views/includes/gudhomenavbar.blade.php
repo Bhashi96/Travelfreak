@@ -8,10 +8,10 @@
                         
                         <li class="nav-item"><a href="/gudhome" class="nav-link disable">My profile</a>  </li>
                         <li class="nav-item"><a href="/serviceprovider/gudeditdetails" class="nav-link">Edit Profile</a>  </li>
-                        <li class="nav-item "><a href="" class="nav-link">Messages</a>  </li>
-                        <li class="nav-item"><a href="" class="nav-link">Notifications</a>  </li>
+                        <!--<li class="nav-item "><a href="" class="nav-link">Messages</a>  </li>
+                        <li class="nav-item"><a href="" class="nav-link">Notifications</a>  </li>-->
                         
-                        
+                        <li class="nav-item"><a href="/threads/forumall" class="nav-link">Forum</a>  </li>
                        
                     </ul>
     

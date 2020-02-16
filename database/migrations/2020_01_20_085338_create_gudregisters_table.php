@@ -23,6 +23,7 @@ class CreateGudregistersTable extends Migration
             $table->string('licence')->nullable();
             $table->string('area')->nullable();
             $table->integer('price')->nullable();
+            $table->string('languages')->nullable();
             $table->string('image_path');
             $table->boolean('isavailable')->default(1);
 
