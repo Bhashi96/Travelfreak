@@ -26,6 +26,7 @@
 						@endif
 						
 						<!-- /booking_form/guide_booking -->
+					
                 		<form action="{{route('guidebooking.create')}}" method="put">
 							@csrf  
 							<div class="row">

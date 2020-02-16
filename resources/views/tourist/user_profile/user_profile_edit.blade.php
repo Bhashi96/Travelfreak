@@ -7,17 +7,18 @@
 <div class="container">
     <h1>Edit Profile</h1>
   	<hr>
-    <form class="form-horizontal" role="form" method="post" action="{{   route( 'update-tourist',['id'=>Auth::user()->id] )   }}" enctype="multipart/form-data">  
-    @csrf
-    @method('put')
+    <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="{{  route( 'update-tourist',['id'=>Auth::user()->id] )  }}" >  
+   <!-- @csrf
+    @method('put') -->
+    {{csrf_field()}}
 	  <div class="row">
       <!-- left column -->
         <div class="col-md-3">
           <div class="text-center">
-            <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+            <img src="images/tourist/{{$user->image_path}}" class="avatar img-circle" alt="avatar" width="200" height="200">
             <h6>Upload your profile photo...</h6>
             
-            <input type="file" class="form-control" name="image">
+            <input type="file" class="form-control" name="image_path">
           </div>
         </div>
 
@@ -62,7 +63,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+        <!--  <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password" name="password" placeholder="Enter the password">
@@ -73,8 +74,8 @@
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password" name="re-pass" placeholder="Re-enter the password" >
-            </div>
-          </div>
+            </div> 
+          </div>  -->
 
           <div class="form-group">
             <label class="col-md-3 control-label"></label>

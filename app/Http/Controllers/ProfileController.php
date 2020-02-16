@@ -36,22 +36,22 @@ class ProfileController extends Controller
             'country' =>'required|max:50|string',
            // 'password' =>'min:6|required_with:re-pass|same:re-pass',
            // 're-pass' =>'min:6',
-         //   'image' => 'required',
+            //  'image' => 'required',
         ]);
 
        
         
            
-        //$user = User::find($id);
+       
         $user = touregister::find(Auth::user()->id);
 
-       // $image ->request('image')->store('public');
+      
       /* if($request->hasfile('image')) 
 
        $image_path = $request->image->getClientOriginalName();
        $request->image->store('public/upload',$image_path);  */
 
-       $path = $request->file('image')->store('images');
+      // $path = $request->file('image_path')->store('images');
 
        
     //   $path = Storage::putFile('images', $request->file('image'));
@@ -60,20 +60,20 @@ class ProfileController extends Controller
         $user->email = $request->get('email');
         $user->country= $request->get('country');  
         $user->cotact = $request->get('cotact');
-        $user->image_path =$path;
+
+            
+
+
+      //  $user->image_path =$path;
       //  $user->password = Hash::make($request->get('password'));
         
-      /*  if($request->hasfile('image')) {
-            $file=$request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/user/',$filename);
-            $user->image_path=$filename;
+        if( $request-> has('image_path')){
+            $image=$request->file('image_path');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('images/tourist'),$filename);
+            $user->image_path=$request->file('image_path')->getClientOriginalName();
         }
-        else{
-
-            return $request;
-        } */ 
+        
         $user->save();
     
         return redirect('/user_profile');

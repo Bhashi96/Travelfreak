@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\GuideBooking;
 use App\gudregisters;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\GuideBookingRequest;
 
@@ -13,6 +14,9 @@ class GuideBookingController extends Controller
 
     public function index2($id){
         $guide = gudregisters::find($id);
+        
+
+
         return view('tourist.booking_form.guide_booking',compact('guide'));
     }
     
@@ -34,11 +38,12 @@ class GuideBookingController extends Controller
     {
 
         $this -> validate($request,[
-            /*'start_date' =>'required|date|afer:tomorrow',
+            'start_date' =>'required|date|afer:tomorrow',
+           // 'start_date' => 'required|date|after:tomorrow',
             'end_date' =>'required|date|after:start_date',
             'district' =>'required',
             'nop' =>'min:1|max:20|numeric',
-            'note' =>'max:255', */
+            'note' =>'max:255', 
         ]);  
 
         $booking =new GuideBooking;
@@ -55,8 +60,9 @@ class GuideBookingController extends Controller
         $booking->save();
 
         $num = $request->guide_id;
-        
-        return redirect()->route('status_guide', [$num]);
+        $num2 = Auth::user()->id;
+       
+        return redirect()->route('status_guide', [$num,$num2]);
        
         
     }

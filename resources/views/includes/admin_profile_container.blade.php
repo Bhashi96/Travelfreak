@@ -27,10 +27,10 @@ hr.style14 {
 <div class="container mt-3">
 <p class="text-Left lead" style="font-size:160%">Drivers </p>
     <div class="row">     
-    @foreach ($driver as $key =>$value)
+    @foreach ($tourist as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead"><strong>{{ $value->name}} </strong> </p>
-                <img src="images/driver/{{ $value->image_path}}" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
+                <img src="images/driver/driver{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
                 <br>
 
                 <p class="text-left lead">{{ $value->area}}</p>
@@ -40,7 +40,37 @@ hr.style14 {
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star"></span>
                      <span class="fa fa-star"></span> 
-                     <a href="{{route('drivers.show',$value->id)}}" class="btn btn-primary">Book now</a>
+                     <!-- <a href="/guide_profile" class="btn btn-primary">Book now</a> -->
+                     <a href="{{route('drivers.show',$value->id)}}" class="btn btn-primary">More info</a>
+                <p class="text-center" > </p>
+             </div>
+             @endforeach          
+    </div>     
+</div> 
+<br>
+ <hr class="style13">
+
+
+ <br>
+<!-- *********************************************************************************************************************  -->       
+<div class="container mt-3">
+<p class="text-Left lead" style="font-size:160%">Drivers </p>
+    <div class="row">     
+    @foreach ($driver as $key =>$value)
+             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <p class="text-center lead"><strong>{{ $value->name}} </strong> </p>
+                <img src="images/driver/driver{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
+                <br>
+
+                <p class="text-left lead">{{ $value->area}}</p>
+
+                <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span> 
+                     <!-- <a href="/guide_profile" class="btn btn-primary">Book now</a> -->
+                     <a href="{{route('drivers.show',$value->id)}}" class="btn btn-primary">More info</a>
                 <p class="text-center" > </p>
              </div>
              @endforeach          
@@ -59,7 +89,7 @@ hr.style14 {
     @foreach ($guide as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead"><strong>{{ $value->name}} </strong></p>
-                <img src="images/guide/{{ $value->image_path}}" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
+                <img src="images/guide/guide{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
                 <br>
 
                 <p class="text-left lead">{{ $value->area}}</p>
@@ -68,7 +98,8 @@ hr.style14 {
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star"></span>
                      <span class="fa fa-star"></span> 
-                     <a href="{{route('guides.show',$value->id)}}" class="btn btn-primary">Book now</a>
+                    <!-- <a href="/guide_profile" class="btn btn-primary">Book now</a> -->
+                     <a href="{{route('guides.show',$value->id)}}" class="btn btn-primary">More info</a>
                 <p class="text-center" > </p>
              </div>
              @endforeach          
@@ -88,7 +119,7 @@ hr.style14 {
     @foreach ($eqp as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead"><strong>{{ $value->name}} </strong> </p>
-                <img src="images/equipment/{{ $value->image_path}}" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
+                <img src="images/eqp/eqp{{$value->id}}.jpg" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
                 <br>
 
                 <p class="text-left lead">{{ $value->area}}</p>
@@ -98,7 +129,7 @@ hr.style14 {
                      <span class="fa fa-star checked"></span>
                      <span class="fa fa-star"></span>
                      <span class="fa fa-star"></span> 
-                     <a href="{{route('equipment.show',$value->id)}}" class="btn btn-primary">Book now</a>
+                     <a href="{{route('equipment.show',$value->id)}}" class="btn btn-primary">More info</a>
                 <p class="text-center" > </p>
              </div>
              @endforeach          
