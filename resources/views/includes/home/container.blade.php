@@ -12,28 +12,28 @@
 			<img src="/img/hiking-1246836_1280.jpg" class="d-block w-100" alt="...">
 				
 				<div class="carousel-caption">
-          			<h5>First slide label</h5>
+          			<h5>Traveling is a passion</h5>
           			<p></p>
         		</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/img/book-2363912_1280.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption">
-          			<h5>Second slide label</h5>
+          			<h5>Traveling make you complete</h5>
           			<p></p>
         		</div>
 			</div>
 			<div class="carousel-item">
 			<img src="/img/autumn-1246856_1280.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption">
-          			<h5>Third slide label</h5>
+          			<h5>Dont marry travel a over the world</h5>
           			<p></p>
         		</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/img/water-1246669_1280.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption">
-          			<h5>Forth slide label</h5>
+          			<h5>Enjoy your life</h5>
           			<p></p>
         		</div>
 			</div>
