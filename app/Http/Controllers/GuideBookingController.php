@@ -17,7 +17,7 @@ class GuideBookingController extends Controller
     public function index2($id){
         $guide = gudregisters::find($id);
         
-
+        $gudbooking=GuideBooking::paginate(15);
 
         return view('tourist.booking_form.guide_booking',compact('guide'));
     }
@@ -67,5 +67,40 @@ class GuideBookingController extends Controller
        
         
     }
+
+    public function show($id)
+    {
+        //
+    }
+    
+
+    public function edit($id)
+    {
+        //
+        
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\thread  $thread
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+       
+
+        $gudbooking=GuideBooking::find($id);
+        $gudbooking ->book_flag = $request->input('book_flag');
+
+        $gudbooking->save();
+        
+       // $drvbooking->book_flag->update($request->input());
+        return back();
+    }
+
+
 
 }

@@ -131,6 +131,10 @@ class RegisterController extends Controller
             $dreg->v_brand=$data['brand'];
             $dreg->v_seats=$data['seats'];
             $dreg->area=$data['area'];
+<<<<<<< HEAD
+=======
+            $dreg->image_path='images/user.png';
+>>>>>>> 99600aece9cfe4aa2c8e0859d537aa83232d51f4
             $dreg->image_path='user.png';
             
 

@@ -54,6 +54,8 @@ Route::get('/threads/forumapart', function () {
 });
 
 Route::resource('/thread','ThreadController');
+Route::resource('/dbookings','DriverBookingController');
+Route::resource('/gbookings','GuideBookingController');
 
 Route::get('/registrations/driver', function () {
     return view('pages.registrations.driver_reg');
@@ -79,11 +81,16 @@ Route::group(['middleware' => ['auth','gud']], function(){
 
 
     Route::get('/gudhome', function () {
-        return view('pages.gudhome');
+        $gudbooking=App\GuideBooking::paginate(15);
+        return view('pages.gudhome',['gudbooking'=>$gudbooking]);
+        //return view('pages.gudhome');
     });
     
     Route::get('/drvhome', function () {
-        return view('pages.drvhome');
+
+        $drvbooking=App\DriverBooking::paginate(15);
+        return view('pages.drvhome',['drvbooking'=>$drvbooking]);
+        //return view('pages.drvhome');
     });
     
     Route::get('/eqphome', function () {

@@ -60,6 +60,60 @@ body {
 	
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 <div class="container">
+
+
+
+
+ 
+@forelse($gudbooking as $gudbooking)
+  @if($gudbooking->guide_id==Auth::user()->id)
+      @if($gudbooking->book_flag==0)
+      <h5>You have a booking request from{{$gudbooking->tourist_id}}</h5>
+      <h6>special note of tourist</h6>
+     <h5>{{$gudbooking->note}}</h5>
+
+
+<div class="actions">
+<div class="row">
+
+<form action="{{route('gbookings.update',$gudbooking->id)}}" method="POST" class="inline-it">
+{{csrf_field()}}
+{{method_field('put')}}
+
+<div class="col-md-6">
+<input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
+
+ </div>
+
+
+<input class="btn btn-info btn-xs" type="submit" value="Accept">
+</form>
+
+<form action="{{route('gbookings.update',$gudbooking->id)}}" method="POST" class="inline-it">
+{{csrf_field()}}
+{{method_field('put')}}
+
+<div class="col-md-6">
+<input id="book_flag" type="hidden"  name="book_flag" value="{{ __('2')}}" required autocomplete="">
+
+ </div>
+<input class="btn btn-danger btn-xs" type="submit" value="Reject">
+</form>
+
+</div>
+</div>
+
+  @endif
+  @endif
+@empty
+<h5>No threads</h5>
+
+@endforelse
+
+
+
+
+
       <div class="row">
         <div class="col-12">
           <div class="card">
