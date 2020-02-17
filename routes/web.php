@@ -104,10 +104,14 @@ Route::get('/equipment_delect/{id}','AdminController@equipment_delete');
 
 
 
-Route::get('/admin_guide_booking_results', 'AdminController@booking_guide');
-Route::get('/admin_driver_booking_results', 'AdminController@booking_driver');
-Route::get('/booking_equipment', 'AdminController@booking_equipment');
+/*Route::post('/admin.home.admin_guide_booking_results', 'AdminController@booking_guide')->name('guide_booking_results');
+Route::post('guide_booking_results', 'AdminController@booking_guide');
+Route::post('/admin_driver_booking_results', 'AdminController@booking_driver');
+Route::post('/booking_equipment', 'AdminController@booking_equipment'); */
 
+Route::get('/admin_report' , function(){
+    return view('admin.home.admin_report');
+});
 //Route::get('/admin_home', 'AdminController@index');
 
 
@@ -170,7 +174,11 @@ Route::get('/equipmentbooks/{id}','EquipmentBookingController@index2');
 
 
 //Route::get('/status/{id}','FeedbackController@index3')->name('status');
-Route::get('/status_guide/{id,id2}','FeedbackGuideController@index2')->name('status_guide');
+
+
+
+//Route::get('/status_guide/{id}/{id2}','FeedbackGuideController@index2')->name('status_guide');
+Route::get('/status_guide/{id}','FeedbackGuideController@index2')->name('status_guide');
 Route::get('/feedbackmsg_guide/{id}' , 'FeedbackGuideController@index1');
 //Route::get('/feedbackmsg/{id}' , 'FeedbackController@index2');
 Route::post('/booking_form/feedback_guide' , 'FeedbackGuideController@create');
@@ -196,3 +204,7 @@ Route::resource('serviceprovider','GudregisterController');
 Route::patch('/drvedit/{driver}','DrvregisterController@update')->name('drv.update');
 
 Route::patch('/gudedit/{guide}','GudregisterController@update')->name('gud.update');
+
+Route::get('dynamic_pdf','DynamicPDFController@index');
+
+Route::get('/dynamic_pdf/pdf','DynamicPDFController@pdf');

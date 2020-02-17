@@ -16,18 +16,63 @@ use App\User;
 
 
 
+
 class AdminController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
+
     public function index()
     {
-        
+       //dd('test');
         $guide = gudregisters::all();
         $driver = drvregisters::all();
         $equipment = eqpregisters::all();
         $tourist = touregister::all();
-        return view('admin.home.admin_home',compact('driver','guide','equipment','tourist'));
+        $g_booking = GuideBooking::all();
+        $i=1;
+        $j=0;
+
+        $g_finised = GuideBooking::where('finiesd_flag', $i)
+                                ->where('book_flag', $i);
+
+        $g_booked = GuideBooking::where('finiesd_flag', $j)
+                                ->where('book_flag', $i);
+
+        $g_pending =GuideBooking::where('finiesd_flag', $j)
+                               ->where('book_flag', $j);
+
+        $d_finised = DriverBooking::where('finiesd_flag', $i)
+                               ->where('book_flag', $i);
+
+        $d_booked = DriverBooking::where('finiesd_flag', $j)
+                               ->where('book_flag', $i);
+
+        $d_pending = DriverBooking::where('finiesd_flag', $j)
+                              ->where('book_flag', $j);
         
-    }
+        $e_finised = EquipmentBooking::where('finiesd_flag', $i)
+                              ->where('book_flag', $i);
+
+        $e_booked = EquipmentBooking::where('finiesd_flag', $j)
+                              ->where('book_flag', $i);
+
+        $e_pending = EquipmentBooking::where('finiesd_flag', $j)
+                             ->where('book_flag', $j);
+
+        
+        
+        return view('admin.home.admin_home',compact('driver','guide','equipment','tourist',
+                                                    'g_finised','g_booked','g_pending',
+                                                    'd_finised','d_booked','d_pending',
+                                                    'e_finised','e_booked','e_pending', 'g_booking',                                               
+                                                ));
+        
+    } 
+
+
 
 
     public function tourist_delete($id)
@@ -70,26 +115,23 @@ class AdminController extends Controller
         
     }
 
-    public function booking_guide()
+   /* public function booking_guide()
     {
-       // DB::table('users')->where('id',$id)->delete();
-        $finised = DB::table('guide_bookings')->where('finiesd_flag', '1');
-        $booked = DB::table('guide_bookings')->where('finiesd_flag', '0')
-                                             ->where('book_flag', '1');
-       /* $booked = DB::table('guide_bookings')
-            ->whereColumn([
-                ['finiesd_flag', '=', '0'],
-                ['book_flag', '=', '1']
-            ])->get(); */
+      
+        $i=1;
+        $j=0;
 
-        $pending = DB::table('guide_bookings')->where('book_flag', '0');
-       // $finised = gudregisters::all();
-      //  $booked = drvregisters::all();
-      //  $pending = eqpregisters::all();
-        return view('admin.home.admin_guide_booking_results',compact('finised','booked','pending'));
-        
-    }
+        $finised = GuideBooking::where('finiesd_flag', $i)
+                                ->where('book_flag', $i);
 
+        $booked = GuideBooking::where('finiesd_flag', $j)
+                                ->where('book_flag', $i);
+
+        $pending =GuideBooking::where('finiesd_flag', $j)
+                               ->where('book_flag', $i);
+
+        return redirect ('/admin.home.admin_guide_booking_results',compact('finised','booked','pending'));
+       // return view('admin.home.admin_guide_booking_results',compact('finised','booked','pending'))
 
     public function booking_driver()
     {
@@ -100,6 +142,9 @@ class AdminController extends Controller
         $pending = DB::table('driver_bookings')->where('book_flag', '0');
         return view('admin.home.admin_driver_booking_results',compact('finised','booked','pending'));
         
-    }
+    }  */
     
+
+
+
 }

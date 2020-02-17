@@ -88,7 +88,7 @@ hr.style14 {
     @foreach ($eqp as $key =>$value)
              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                 <p class="text-center lead"><strong>{{ $value->name}} </strong> </p>
-                <img src="images/equipment/{{ $value->image_path}}" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
+                <img src="images/eqp/{{ $value->image_path}}" class="mx-auto d-block image-fluid" alt="" width="251" height="161">
                 <br>
 
                 <p class="text-left lead">{{ $value->area}}</p>

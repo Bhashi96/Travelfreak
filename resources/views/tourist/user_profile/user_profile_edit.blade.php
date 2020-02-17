@@ -45,14 +45,14 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Mobile no:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="cotact" value="{{$user->cotact}}" placeholder="Enter your mobile no" >
+              <input class="form-control" type="text" name="contact" value="{{$user->contact}}" placeholder="Enter your mobile no" >
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="email" value="{{$user->email}}" placeholder="Enter your e-mail">
+              <input class="form-control" type="text" name="email" value="{{$user->email}}"  readonly>
             </div>
           </div>
          

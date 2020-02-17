@@ -1,39 +1,19 @@
+
+
 @extends('layouts.default')
 
 @section('content')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap.min.css"/>
-<link rel="stylesheet" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" href="css/flaticon.css"/>
-<link rel="stylesheet" href="css/owl.carousel.css"/>
-<link rel="stylesheet" href="css/magnific-popup.css"/>
-<link rel="stylesheet" href="css/style.css"/>
 
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<!--upload image-->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
-    <style>
+<style>
         body{margin-top:20px;}
 
 body {
     color: #6c7293;
 }
-
+p {
+  font-size:1.1em;
+}
 .profile-navbar .nav-item .nav-link {
   color: #6c7293;
 }
@@ -76,10 +56,10 @@ body {
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-lg-4">
-                  <div class="border-bottom text-center pb-4">
-                    <img src="../img/boy4.jpg" alt="profile" class="img-lg rounded-circle mb-3">
-                    <div class="mb-3">
+                <div class="col-lg-6">
+                  <div class="border-bottom text-center pb-6">
+                    <img src="images/eqp/{{$equipment->image_path}}" alt="profile" class="img-rounded " width="251" height="161"  >
+                    <div class="mb-6">
                     <h3>{{ $equipment -> name}}</h3>
                       <div class="d-flex align-items-center justify-content-center">
                         <h5 class="mb-0 mr-2 text-muted">{{ $equipment -> area}}</h5>
@@ -105,11 +85,20 @@ body {
                         
                     </p>
                     <div class="d-flex justify-content-center">
-                      <button class="btn btn-success mr-1">Add</button>
-                      <button class="btn btn-success">Notifications</button>
+                      @if( ($booking->book_flag == 0 && $booking->finiesd_flag == 0) || ($booking->book_flag == 1 && $booking->finiesd_flag == 0) ||($booking->book_flag == 0 && $booking->finiesd_flag == 1) )
+                      <button class="btn btn-success"> 
+                        <a href="/status_equipment/{{$equipment->id}}" class="btn btn-success btn-lg">Book now</a>
+                        
+                      </button>
+                      @else
+                      <button class="btn btn-success"> 
+                       
+                        <a href="/equipmentbooks/{{$equipment->id}}" class="btn btn-success btn-lg">Book now</a>
+                      </button>
+                      @endif
                     </div>
                   </div>
-                  
+                 
                   <div class="border-bottom py-4">
                     <div class="d-flex mb-3">
                       <div class="progress progress-md flex-grow">
@@ -128,10 +117,9 @@ body {
                     </div>
                   </div>
                   
-                  <div class="py-4">
+                  <div class="py-6">
                     
-                    
-                    <p class="clearfix">
+                  <p class="clearfix">
                       <span class="float-left">
                         E-mail
                       </span>
@@ -156,24 +144,34 @@ body {
                       {{$equipment->address}}
                       </span>
                     </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        District
+                      </span>
+                      <span class="float-right text-muted">
+                      {{$equipment->area}}
+                      </span>
+                    </p>
                    
                     <p class="clearfix">
                       <span class="float-left">
                         Charge per day
                       </span>
                       <span class="float-right text-muted">
-                        <a href="#">1500</a>
+                      {{$equipment->price}}
                       </span>
                     </p>
+                
                 
                       </div>
                       
                     </div>
                 </div>
             </div>
-           <!--    <a href="/booking_form/driver_booking" class="btn btn-success btn-lg">Book now</a>   -->
-            <a href="/equipmentbooks/{{$equipment->id}}" class="btn btn-success btn-lg">Book now</a>
-
+           
+           
+           
+            
                <div class="col-lg-8">
                   
                   <div class="mt-4 py-2 border-top border-bottom">
@@ -188,19 +186,24 @@ body {
                     </ul>
                   </div>
                   <div class="profile-feed">
+
+                @foreach ($rate as $key =>$value)
+
                     <div class="d-flex align-items-start profile-feed-item">
                       <img src="../img/boy3.jpg" alt="profile" class="img-sm rounded-circle">
                       <div class="ml-4">
                         <h6>
-                          James Henry
+                        {{$rate->tourist_id}} 
+                       
+                        echo $rate->rate;
                           <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
                         </h6>
                         <p>
-                          One of the best drivers I have ever seen in Sri Lanka
+                        {{$rate->comment}} 
                         </p>
                         <p class="small text-muted mt-2 mb-0">
                           <span>
-                            <i class="mdi mdi-star mr-1"></i>4
+                            <i class="mdi mdi-star mr-1"></i> {{$rate->rate}} 
                           </span>
                           <span class="ml-2">
                             <i class="mdi mdi-comment mr-1"></i>11
@@ -211,53 +214,8 @@ body {
                         </p>
                       </div>
                     </div>
-                    <div class="d-flex align-items-start profile-feed-item">
-                      <img src="../img/boy1.jpg" alt="profile" class="img-sm rounded-circle">
-                      <div class="ml-4">
-                        <h6>
-                          Logan Reggle
-                          <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                        </h6>
-                        <p>
-                            It's superb
-                        </p>                            
-                        <p class="small text-muted mt-2 mb-0">
-                          <span>
-                            <i class="mdi mdi-star mr-1"></i>4
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-comment mr-1"></i>11
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-reply"></i>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-start profile-feed-item">
-                      <img src="../img/girl1.jpg" alt="profile" class="img-sm rounded-circle">
-                      <div class="ml-4">
-                        <h6>
-                          Cristina Shanel
-                          <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                        </h6>
-                        <p>
-                          Superb service. Keep it up!
-                        </p>
-                                                                                
-                        <p class="small text-muted mt-2 mb-0">
-                          <span>
-                            <i class="mdi mdi-star mr-1"></i>4
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-comment mr-1"></i>11
-                          </span>
-                          <span class="ml-2">
-                            <i class="mdi mdi-reply"></i>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
+
+                    @endforeach      
                   </div>
                 </div>
               </div>
@@ -268,7 +226,5 @@ body {
     </div>
     
 
- 
- 
    
 @endsection

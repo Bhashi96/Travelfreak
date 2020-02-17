@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\FeedbackEquipment;
 use App\eqpregisters;
+use Illuminate\Support\Facades\DB;
+use App\equipmentBooking;
 class FeedbackEquipmentController extends Controller
 {
     public function index1($id){
@@ -15,11 +17,16 @@ class FeedbackEquipmentController extends Controller
 
     }
 
+
     public function index2($id){
-       
+        $id2=Auth::user()->id;
         $equipment = eqpregisters::find($id);
-        return view('tourist.status.waiting_equipment',compact('equipment'));
+        $booking = EquipmentBooking::where('equipment_id', $id)
+                                              ->where('tourist_id', $id2)->latest('created_at')->first();
+        // dd($booking->book_flag);
+        return view('tourist.status.waiting_equipment',compact('equipment','booking'));
     }
+
 
     public function Validator(array $data)
     {

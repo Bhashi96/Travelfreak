@@ -63,7 +63,7 @@
                         @endif
                         @if(Auth::user()->user_type=='admin')
                         <li class="nav-item">
-                                    <a class="nav-link" href="/adminhome">{{ __('Admin home') }}</a>
+                                    <a class="nav-link" href="/admin_home">{{ __('Admin home') }}</a>
                           </li>
 
                         @endif

@@ -38,7 +38,7 @@
                     <hr>
                     <center>
                     <span><strong>Mobile:  </strong></span>
-                    <span class="label label-warning">{{ $user->cotact}}</span>
+                    <span class="label label-warning">{{ $user->contact}}</span>
                     </center>
                 </div>
                

@@ -17,13 +17,14 @@ class EquipmentBookingController extends Controller
     public function create(Request $request)
     {
 
-      /*  $this -> validate($request,[
-            'start_date' =>'required|date|afer:tomorrow',
-            'end_date' =>'required|date|after:start_date',
+        $this -> validate($request,[
+            
+            'start_date' => 'required|date|after_or_equal:tomorrow',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'district' =>'required',
             'nop' =>'min:1|max:20|numeric',
             'note' =>'max:255',
-        ]);  */
+        ]);  
 
         $booking =new EquipmentBooking;
         $booking->tourist_id = Auth::user()->id;

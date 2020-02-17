@@ -7,6 +7,8 @@ use App\GuideBooking;
 use App\gudregisters;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+Use Illuminate\Support\Carbon;
+
 use App\Http\Requests\GuideBookingRequest;
 
 class GuideBookingController extends Controller
@@ -36,11 +38,10 @@ class GuideBookingController extends Controller
     
     public function create(GuideBookingRequest $request)
     {
-
+      
         $this -> validate($request,[
-            'start_date' =>'required|date|afer:tomorrow',
-           // 'start_date' => 'required|date|after:tomorrow',
-            'end_date' =>'required|date|after:start_date',
+            'start_date' => 'required|date|after_or_equal:tomorrow',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'district' =>'required',
             'nop' =>'min:1|max:20|numeric',
             'note' =>'max:255', 

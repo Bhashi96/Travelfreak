@@ -44,16 +44,9 @@
                                   </div>
                                 </div>
 
-								<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Guide ID</span>
-										<input id="guide_id" name="guide_id" class="form-control" value= "{{$guide->id}}" >
-									</div>
-									
-								</div>
 								
-							</div>  
+										<input id="guide_id" name="guide_id" class="form-control"  type='hidden' value= "{{$guide->id}}" >
+								  
 								
 							 <!--	<div class="col-md-3">
 									<div class="form-btn">

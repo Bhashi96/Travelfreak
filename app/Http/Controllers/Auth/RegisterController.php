@@ -88,7 +88,8 @@ class RegisterController extends Controller
 
 
     {
-        $count = DB::table('users')->count();
+        $count = DB::table('users')->latest()->value('id');
+        //$count = Users::latest()->value('id');
 
         if($data['user_type']=="tou"){
 
@@ -97,7 +98,7 @@ class RegisterController extends Controller
         $treg->id=$count+1;
         $treg->email=$data['email'];
         $treg->name=$data['name'];
-       
+        $treg->contact=$data['contact'];
         $treg->country=$data['country'];
         $treg->image_path='user.png';
         $treg->save();
@@ -127,14 +128,10 @@ class RegisterController extends Controller
             $dreg->age=$data['age'];
             $dreg->licence=$data['licence'];
             $dreg->v_reg_no=$data['vrn'];
-<<<<<<< HEAD
             $dreg->v_brand=$data['brand'];
             $dreg->v_seats=$data['seats'];
-            $greg->area=$data['area'];
-            $dreg->image_path='images/user.png';
-=======
+            $dreg->area=$data['area'];
             $dreg->image_path='user.png';
->>>>>>> f4816524d6d1331b73b99a1876df4f0e7b88639f
             
 
             $dreg->save();

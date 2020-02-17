@@ -10,7 +10,9 @@
 body {
     color: #6c7293;
 }
-
+p {
+  font-size:1.1em;
+}
 .profile-navbar .nav-item .nav-link {
   color: #6c7293;
 }
@@ -55,7 +57,7 @@ body {
               <div class="row">
                 <div class="col-lg-8">
                   <div class="border-bottom text-center pb-6">
-                    <img src="../images/guide/guide{{$guide->id}}.jpg" alt="profile" class="img-rounded " width="251" height="161"  >
+                    <img src="images/guide/{{$guide->image_path}}" alt="profile" class="img-rounded " width="251" height="161"  >
                     <div class="mb-6">
                       <h3>{{ $guide -> name}}</h3>
                       <div class="d-flex align-items-center justify-content-center">
@@ -82,10 +84,17 @@ body {
                         
                     </p>
                     <div class="d-flex justify-content-center">
-                     
+                      @if( ($booking->book_flag == 0 && $booking->finiesd_flag == 0) || ($booking->book_flag == 1 && $booking->finiesd_flag == 0) ||($booking->book_flag == 0 && $booking->finiesd_flag == 1) )
                       <button class="btn btn-success"> 
+                        <a href="/status_guide/{{$guide->id}}" class="btn btn-success btn-lg">Book now</a>
+                        
+                      </button>
+                      @else
+                      <button class="btn btn-success"> 
+                       
                         <a href="/guidebooks/{{$guide->id}}" class="btn btn-success btn-lg">Book now</a>
                       </button>
+                      @endif
                     </div>
                   </div>
                   
@@ -119,10 +128,26 @@ body {
                     </p>
                     <p class="clearfix">
                       <span class="float-left">
+                        District
+                      </span>
+                      <span class="float-right text-muted">
+                        {{$guide->area}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
                        Gender
                       </span>
                       <span class="float-right text-muted">
                       {{$guide->gender}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                       Languges
+                      </span>
+                      <span class="float-right text-muted">
+                      {{$guide->languges}}
                       </span>
                     </p>
                     <p class="clearfix">
@@ -182,7 +207,7 @@ body {
                   </div>
                   <div class="profile-feed">
 
-                  @foreach ($rate as $key =>$value)
+                @foreach ($rate as $key =>$value)
 
                     <div class="d-flex align-items-start profile-feed-item">
                       <img src="../img/boy3.jpg" alt="profile" class="img-sm rounded-circle">
@@ -210,7 +235,7 @@ body {
                       </div>
                     </div>
 
-                    @endforeach     
+                    @endforeach      
                   </div>
                 </div>
               </div>

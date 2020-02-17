@@ -3,32 +3,39 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
-use App\FeedbackDriver;
-use App\drvregisters;
+use App\FeedbackGuide;
+use App\gudregisters;
 use Illuminate\Support\Facades\DB;
-use App\DriverBooking;
+use App\GuideBooking;
 use Illuminate\Support\Facades\Validator;
 
-class FeedbackDriverController extends Controller
+class FeedbackGuideController extends Controller
 {
     
 
     public function index1($id){
-       
-        $driver = drvregisters::find($id);
-        return view('tourist.booking_form.feedback_driver',compact('driver'));
+        
+        $guide = gudregisters::find($id);
+        return view('tourist.booking_form.feedback_guide',compact('guide'));
 
     }
 
+    // public function index2($id){
+    //     $guide = Guides::find($id);
+    //     return view('tourist.booking_form.feedback',compact('guide'));
+    // }
+
+    
+   
+   // public function index2($id,$id2){
     public function index2($id){
         $id2=Auth::user()->id;
-        $driver = drvregisters::find($id);
-        $booking = DriverBooking::where('driver_id', $id)
-                                 ->where('tourist_id', $id2)->latest('created_at')->first();
+        $guide = gudregisters::find($id);
+        $booking = GuideBooking::where('guide_id', $id)
+                                              ->where('tourist_id', $id2)->latest('created_at')->first();
         // dd($booking->book_flag);
-        return view('tourist.status.waiting_driver',compact('driver','booking'));
+        return view('tourist.status.waiting_guide',compact('guide','booking'));
     }
-    
 
     public function Validator(array $data)
     {
@@ -53,9 +60,9 @@ class FeedbackDriverController extends Controller
     public function create(Request $request)
     {
 
-        $rating =new FeedbackDriver;
+        $rating =new FeedbackGuide;
         $rating->tourist_id = Auth::user()->id;
-        $rating->driver_id = $request->driver_id;
+        $rating->guide_id = $request->guide_id;
         $rating->service_id = 007;
         $rating->rate = $request->rate;
         $rating->comment = $request->comment;
@@ -65,4 +72,5 @@ class FeedbackDriverController extends Controller
         return redirect()->route('home');
     }
 }
+
 

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\gudregisters;
 use App\FeedbackGuide;
+use App\GuideBooking;
 class GuidesController extends Controller
 {
     /**
@@ -51,9 +52,13 @@ class GuidesController extends Controller
     {
        
          $guide = gudregisters::find($id);
-         $rate = FeedbackGuide::find($id);
+        // $rate = FeedbackGuide::find($id);
+         $rate = FeedbackGuide::where('guide_id', $id);
         // $rate = DB::table('feedback_guides')->where('guide_id', 'id');
-        return view('pages.guide_profile',compact('guide','rate'));
+        $id2 = Auth::user()->id;
+        $booking = GuideBooking::where('guide_id', $id)
+                                              ->where('tourist_id', $id2)->latest('created_at')->first();
+        return view('pages.guide_profile',compact('guide','rate','booking'));
     }
 
     /**

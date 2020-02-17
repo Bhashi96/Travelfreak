@@ -31,12 +31,8 @@ class ProfileController extends Controller
     {
         $this -> validate($request,[
             'name' =>'required|min:3|max:50|string',
-            'email' =>'email|unique:users,email',
-            'cotact' =>'string|min:10|max:10',
+            'cotact' =>'string|min:9|max:10',
             'country' =>'required|max:50|string',
-           // 'password' =>'min:6|required_with:re-pass|same:re-pass',
-           // 're-pass' =>'min:6',
-            //  'image' => 'required',
         ]);
 
        
@@ -46,26 +42,12 @@ class ProfileController extends Controller
         $user = touregister::find(Auth::user()->id);
 
       
-      /* if($request->hasfile('image')) 
-
-       $image_path = $request->image->getClientOriginalName();
-       $request->image->store('public/upload',$image_path);  */
-
-      // $path = $request->file('image_path')->store('images');
-
-       
-    //   $path = Storage::putFile('images', $request->file('image'));
+     
 
         $user->name= $request->get('name');  
         $user->email = $request->get('email');
         $user->country= $request->get('country');  
-        $user->cotact = $request->get('cotact');
-
-            
-
-
-      //  $user->image_path =$path;
-      //  $user->password = Hash::make($request->get('password'));
+        $user->contact = $request->get('contact');
         
         if( $request-> has('image_path')){
             $image=$request->file('image_path');

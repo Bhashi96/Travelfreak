@@ -3,7 +3,6 @@
 @section('content')
 @include('includes.driver_booking_head')
 
-
 <body>
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -25,7 +24,7 @@
 						</div>
 						@endif
 				
-                		<!-- /booking_form/driver_booking -->
+                		
 						<form action="{{route('driverbooking.create')}}" method="put">
 							@csrf  
 							<div class="row">
@@ -61,13 +60,6 @@
 										<input type="time" class="form-control" id="time" name="time" required>								
 									</div>
 								</div>
-
-				  	<!--	   <div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Driver Id</span>
-										<input id="driver_id" name="driver_id" class="form-control" value= "{{$driver->id}}" >							
-									</div>
-								</div>   -->
 								
 								<input id="driver_id" name="driver_id" class="form-control" type='hidden' value= "{{$driver->id}}" >	
 
