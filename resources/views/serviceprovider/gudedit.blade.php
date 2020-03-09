@@ -2,89 +2,90 @@
 
 @section('content')
 
-<div class="container">
+< <div class="container">
     <h1>Edit Profile</h1>
-    <hr>
-    <div class="row">
-    <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="../img/boy1.jpg" class="avatar img-circle" alt="avatar">
-          <h6>Upload a profile picture</h6>
-          <input type="file" class="form-control">
+  	<hr>
+    
+    <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="{{route('gud.update',['guide'=>Auth::user()->id])}}" >  
+   
+    {{csrf_field()}}
+	  <div class="row">
+      <!-- left column -->
+        <div class="col-md-3">
+          <div class="text-center">
+          <img src="/images/guide/{{Auth::user()->gud->image_path}}" class="avatar img-circle" alt="avatar" width="200" height="200">
+            
+            <input type="file" class="form-control" name="image_path">
+          </div>
         </div>
-      </div>
-                 
 
+      <div class="col-md-9 personal-info">
+        <h3>Personal info</h3>
+        @if(count($errors) > 0)
+          <div> 
+              <ul>
+              @foreach($errors->all() as $erorr)
+                <li style="color:red">  {{$erorr}}</li>
+              @endforeach
+              </ul>
+          </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+        @endif
 
 
 
       <!-- edit form column -->
 
-      <div class="col-md-9 personal-info">
-                
-        <h3>Personal info</h3>
+      
 
 
 
     <form method="post" action="{{route('gud.update',['guide'=>Auth::user()->id])}}">    
     @method('PATCH')
-        {{csrf_field()}}         
+    @csrf
+        <!-- {{csrf_field()}}          -->
         <form class="form-horizontal" role="form">
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{Auth::user()->name}}">
+              <input class="form-control" name="name" type="text" value="{{Auth::user()->gud->name}}">
             </div>
           </div>
        
         <div class="form-group">
           <label class="col-lg-3 control-label">Age:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="{{Auth::user()->gud->age}}">
+            <input class="form-control" name="age" type="text" value="{{Auth::user()->gud->age}}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Area:</label>
           <div class="col-lg-8">
-            <select>
-            <option selected>Colombo</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Badulla</option>
-                                        <option>Batticaloa</option>
-                                        <option>Galle</option>
-                                        <option>Gampaha</option>
-                                        <option>Hambantota</option>
-                                        <option>Jaffna</option>
-                                        <option>Kalutara</option>
-                                        <option>Kandy</option>
-                                        <option>Kegalle</option>
-                                        <option>Kilinochchi</option>
-                                        <option>Kurunegala</option>
-                                        <option>Mannar</option>
-                                        <option>Matale</option>
-                                        <option>Matara</option>
-                                        <option>Monaragala</option>
-                                        <option>Mullaitivu</option>
-                                        <option>Nuwara Eliya</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Puttalam</option>
-                                        <option>Ratnapura</option>
-                                        <option>Trincomalee</option>
-                                        <option>Vavuniya</option>
+            <select id="area" name="area" >
+            <option>{{Auth::user()->gud->area}}</option>
+                                        <option value="Anuradhapura">Anuradhapura</option>
+                                        <option value="Badulla">Badulla</option>
+                                        <option value="Batticaloa">Batticaloa</option>
+                                        <option value="Galle">Galle</option>
+                                        <option value="Gampaha">Gampaha</option>
+                                        <option value="Hambantota">Hambantota</option>
+                                        <option value="Jaffna">Jaffna</option>
+                                        <option value="Kalutara">Kalutara</option>
+                                        <option value="Kandy">Kandy</option>
+                                        <option value="Kegalle">Kegalle</option>
+                                        <option value="Kilinochchi">Kilinochchi</option>
+                                        <option value="Kurunegala">Kurunegala</option>
+                                        <option value="Mannar">Mannar</option>
+                                        <option value="Matale">Matale</option>
+                                        <option value="Matara">Matara</option>
+                                        <option value="Monaragala">Monaragala</option>
+                                        <option value="Mullaitivu">Mullaitivu</option>
+                                        <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                        <option value="Polonnaruwa">Polonnaruwa</option>
+                                        <option value="Puttalam">Puttalam</option>
+                                        <option value="Ratnapura">Ratnapura</option>
+                                        <option value="Trincomalee">Trincomalee</option>
+                                        <option value="Vavuniya">Vavuniya</option>
             </select>
           </div>
         </div>
@@ -103,22 +104,28 @@
       <div class="form-group ">
         <label class="col-lg-3 control-label">Contact Number</label>
         <div class="col-lg-8">
-        <input type="text" class="form-control" name="contact" id="inputContactNo" placeholder="Contact no" value="{{Auth::user()->gud->contact}}">
+        <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact no" value="{{Auth::user()->gud->contact}}">
         </div>  
       </div>
+      <!-- <div class="form-group">
+            <label class="col-lg-3 control-label">Price per day:</label>
+            <div class="col-lg-8">
+              <input class="form-control" name="price" type="text" value="{{Auth::user()->gud->price}}">
+            </div>
+          </div> -->
       <!-- <div class="form-group ">
         <label class="col-lg-3 control-label">Price for day</label>
         <div class="col-lg-8">
           <input type="text" class="form-control" id="inputContactNo" >
         </div>
       </div> -->
-      <div class="form-group">
-        <label class="col-md-3 control-label">Availability</label>
+      <!-- <div class="form-group">
+        <label class="col-md-3 control-label">Availability
         
-        <div class="col-md-8">
         <input type="checkbox" >
                 </div>
-      </div>
+        </label>
+      </div> -->
       <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
