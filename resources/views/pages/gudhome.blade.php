@@ -2,7 +2,7 @@
 
 @section('content')
 @csrf
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <style>
         body{margin-top:20px;}
@@ -64,13 +64,16 @@ body {
 
 
 
- 
+
+
 @forelse($gudbooking as $gudbooking)
   @if($gudbooking->guide_id==Auth::user()->id)
-      @if($gudbooking->book_flag==0)
-      <h5>You have a booking request from{{$gudbooking->tourist_id}}</h5>
+      @if(  ($gudbooking->book_flag==0)  &&  ($gudbooking->finiesd_flag==0) )
+      <h5>You have a booking request </h5>
+      <h6>booking date from {{$gudbooking->start_date}} to {{$gudbooking->end_date}} in {{$gudbooking->district}}
+   
       <h6>special note of tourist</h6>
-     <h5>{{$gudbooking->note}}</h5>
+     <h6>{{$gudbooking->note}}</h6>
 
 
 <div class="actions">
@@ -81,9 +84,14 @@ body {
 {{method_field('put')}}
 
 <div class="col-md-6">
-<input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
+  <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
 
- </div>
+  </div>
+ 
+  <div class="col-md-6">
+  <input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('0')}}" required autocomplete="">
+
+  </div>
 
 
 <input class="btn btn-info btn-xs" type="submit" value="Accept">
@@ -97,6 +105,11 @@ body {
 <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('2')}}" required autocomplete="">
 
  </div>
+ 
+<div class="col-md-6">
+<input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('2')}}" required autocomplete="">
+
+ </div>
 <input class="btn btn-danger btn-xs" type="submit" value="Reject">
 </form>
 
@@ -104,11 +117,50 @@ body {
 </div>
 
   @endif
+
+
+
+  @if( ($gudbooking->book_flag==1)  &&  ($gudbooking->finiesd_flag==0))
+  <h5>You have accept the booking request</h5>
+      <h6>booking date from {{$gudbooking->start_date}} to {{$gudbooking->end_date}} in {{$gudbooking->district}} area</h6>
+   
+      <h6>special note of tourist</h6>
+     <h6>{{$gudbooking->note}}</h6>
+
+<div class="actions">
+<div class="row">
+
+<form action="{{route('gbookings.update',$gudbooking->id)}}" method="POST" class="inline-it">
+{{csrf_field()}}
+{{method_field('put')}}
+
+
+<div class="col-md-6">
+  <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
+
+  </div>
+
+<div class="col-md-6">
+<input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('1')}}" required autocomplete="">
+
+ </div>
+ 
+
+
+<input class="btn btn-info btn-xs" type="submit" value="Finished service">
+</form>
+
+</div>
+</div>
+
   @endif
+  @endif
+
 @empty
 <h5>No threads</h5>
 
 @endforelse
+
 
 
 
@@ -121,7 +173,7 @@ body {
               <div class="row">
                 <div class="col-lg-4">
                   <div class="border-bottom text-center pb-4">
-                    <img src="../img/boy1.jpg" alt="profile" class="img-lg rounded-circle mb-3">
+                  <img src="/images/guide/{{Auth::user()->gud->image_path}}" class="avatar img-circle" alt="avatar" width="200" height="200">
                     <div class="mb-3">
 
                      <h3>{{Auth::user()->name}}</h3>
@@ -177,26 +229,43 @@ body {
                     
                     <p class="clearfix">
                       <span class="float-left">
-                        Age
+                        Age :
                       </span>
                       <span class="float-right">
                       {{Auth::user()->gud->age}}
                       </span>
                     </p>
-                    <p class="clearfix">
+                    <!-- <p class="clearfix">
                       <span class="float-left">
                         languages 
                       </span>
                       <span class="float-right text-muted">
                         English
+                      </span> -->
+                      <p class="clearfix">
+                      <span class="float-left">
+                        Contact :
+                      </span>
+                      <span class="float-right">
+                      {{Auth::user()->gud->contact}}
                       </span>
                     </p>
                     <p class="clearfix">
                       <span class="float-left">
-                        Charge per day
+                        email :
+                      </span>
+                      <span class="float-right">
+                      {{Auth::user()->gud->email}}
+                      </span>
+                    </p>
+
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Charge per day :
                       </span>
                       <span class="float-right text-muted">
-                        <a href="#">  Rs.1200 </a>
+                        <a href="#">  {{Auth::user()->gud->price}}</a>
                       </span>
                     </p>
                 
@@ -208,7 +277,7 @@ body {
                 
                <div class="col-lg-8">
                   
-                  <div class="mt-4 py-2 border-top border-bottom">
+                  <!-- <div class="mt-4 py-2 border-top border-bottom">
                     <ul class="nav profile-navbar">
                       <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -289,7 +358,7 @@ body {
                           </span>
                         </p>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>

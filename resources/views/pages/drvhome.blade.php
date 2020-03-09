@@ -2,7 +2,7 @@
 
 @section('content')
 @csrf
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <style>
         body{margin-top:20px;}
@@ -61,11 +61,12 @@ body {
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 <div class="container">
 
-
 @forelse($drvbooking as $drvbooking)
   @if($drvbooking->driver_id==Auth::user()->id)
-      @if($drvbooking->book_flag==0)
-      <h5>You have a booking request from{{$drvbooking->tourist_id}}</h5>
+      @if(  ($drvbooking->book_flag==0)  &&  ($drvbooking->finiesd_flag==0) )
+      <h5>You have a booking request </h5>
+      <h6>booking date {{$drvbooking->date}} booking time {{$drvbooking->time}}
+      <h6>from {{$drvbooking->from}} to {{$drvbooking->to}}</h6>
       <h6>special note of tourist</h6>
      <h5>{{$drvbooking->note}}</h5>
 
@@ -78,9 +79,14 @@ body {
 {{method_field('put')}}
 
 <div class="col-md-6">
-<input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
+  <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
 
- </div>
+  </div>
+ 
+  <div class="col-md-6">
+  <input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('0')}}" required autocomplete="">
+
+  </div>
 
 
 <input class="btn btn-info btn-xs" type="submit" value="Accept">
@@ -94,6 +100,11 @@ body {
 <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('2')}}" required autocomplete="">
 
  </div>
+ 
+<div class="col-md-6">
+<input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('2')}}" required autocomplete="">
+
+ </div>
 <input class="btn btn-danger btn-xs" type="submit" value="Reject">
 </form>
 
@@ -101,7 +112,45 @@ body {
 </div>
 
   @endif
+
+
+
+  @if( ($drvbooking->book_flag==1)  &&  ($drvbooking->finiesd_flag==0))
+  <h5>You have accept the booking request</h5>
+      <h6>booking date {{$drvbooking->date}} booking time {{$drvbooking->time}}
+      <h6>from {{$drvbooking->from}} to {{$drvbooking->to}}</h6>
+      <h6>special note of tourist is {{$drvbooking->note}}</h6>
+     <h6></h6>
+
+<div class="actions">
+<div class="row">
+
+<form action="{{route('dbookings.update',$drvbooking->id)}}" method="POST" class="inline-it">
+{{csrf_field()}}
+{{method_field('put')}}
+
+
+<div class="col-md-6">
+  <input id="book_flag" type="hidden"  name="book_flag" value="{{ __('1')}}" required autocomplete="">
+
+  </div>
+
+<div class="col-md-6">
+<input id="finished_flag" type="hidden"  name="finished_flag" value="{{ __('1')}}" required autocomplete="">
+
+ </div>
+ 
+
+
+<input class="btn btn-info btn-xs" type="submit" value="Finished service">
+</form>
+
+</div>
+</div>
+
   @endif
+  @endif
+
 @empty
 <h5>No threads</h5>
 
@@ -126,7 +175,8 @@ body {
               <div class="row">
                 <div class="col-lg-4">
                   <div class="border-bottom text-center pb-4">
-                    <img src="../img/atharva.jpg" alt="profile" class="img-lg rounded-circle mb-3">
+                   
+                    <img src="/images/driver/{{Auth::user()->drv->image_path}}" class="avatar img-circle" alt="avatar" width="200" height="200">
                     <div class="mb-3">
                    
                       <h3>{{Auth::user()->name}}</h3>
@@ -166,10 +216,26 @@ body {
                     
                     <p class="clearfix">
                       <span class="float-left">
-                        Age
+                        Age :
                       </span>
                       <span class="float-right">
                       {{Auth::user()->drv->age}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        Contact :
+                      </span>
+                      <span class="float-right">
+                      {{Auth::user()->drv->contact}}
+                      </span>
+                    </p>
+                    <p class="clearfix">
+                      <span class="float-left">
+                        email :
+                      </span>
+                      <span class="float-right">
+                      {{Auth::user()->drv->email}}
                       </span>
                     </p>
                     <!-- <p class="clearfix">
@@ -190,30 +256,31 @@ body {
                     </p> -->
     
                     
-                        <p class="clearfix">
+                         <p class="clearfix">
                             <span class="float-left">
-                              Vehicle Brand
+                              Vehicle type :
                             </span>
                             <span class="float-right text-muted">
                               <a href="#">  {{Auth::user()->drv->v_brand}}</a>
                             </span>
-                        </p>
+                        </p> 
                         <p class="clearfix">
                             <span class="float-left">
-                              Vehicle Number
+                              Vehicle Number :
                             </span>
                             <span class="float-right text-muted">
                               <a href="#">  {{Auth::user()->drv->v_reg_no}}</a>
                             </span>
                         </p>
-                        <img src="../img/kia_soul_EV.jpg" alt="profile" class="img-lg  mb-3">
+                        <img src="/images/vehical/{{Auth::user()->drv->img}}" class="avatar img-circle" alt="avatar" width="300" height="200">
+                        <!-- <img src="../img/kia_soul_EV.jpg" alt="profile" class="img-lg  mb-3"> -->
                       </div>
                       
                     </div>
                 </div>
             </div>
                 
-               <div class="col-lg-8">
+               <!-- <div class="col-lg-8">
                   
                   <div class="mt-4 py-2 border-top border-bottom">
                     <ul class="nav profile-navbar">
@@ -224,8 +291,8 @@ body {
                         </a>
                       </li>
                     </ul>
-                  </div>
-                  <div class="profile-feed">
+                  </div> -->
+                  <!-- <div class="profile-feed">
                     <div class="d-flex align-items-start profile-feed-item">
                       <img src="../img/boy1.jpg" alt="profile" class="img-sm rounded-circle">
                       <div class="ml-4">
@@ -296,7 +363,7 @@ body {
                           </span>
                         </p>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
