@@ -18,28 +18,28 @@
               <!-- edit form column -->
               <div class="col-md-9 personal-info">
                 
-                <h3>Personal info</h3>
+                <h3>Company info</h3>
                 
                 <form class="form-horizontal" role="form">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label">First name:</label>
+                    <label class="col-lg-3 control-label">company name:</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" value="danush">
+                      <input class="form-control" type="text" value="value="{{Auth::user()->eqp->name}}"">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
                       <input class="form-control" type="text" value="rajani">
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
-                    <label class="col-lg-3 control-label">Available Area:</label>
+                    <label class="col-lg-3 control-label">Address</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" value="">
+                      <input class="form-control" type="text" value="{{Auth::user()->eqp->address}}">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="col-lg-3 control-label">Gender:</label>
                     <div class="col-lg-8">
                         <select >
@@ -48,17 +48,17 @@
                           <option>Other</option>
                         </select>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
-                    <label class="col-lg-3 control-label">Email:</label>
+                    <label class="col-lg-3 control-label">Email :</label>
                     <div class="col-lg-8">
-                      <input class="form-control" type="text" value="danush@gmail.com">
+                      <input class="form-control" type="text" value="{{Auth::user()->eqp->email}}">
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label class="col-lg-3 control-label">Contact Number</label>
+                    <label class="col-lg-3 control-label">Contact Number :</label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="inputContactNo" placeholder="Contact no">
+                        <input type="text" class="form-control" id="inputContactNo" placeholder="Contact no" value="{{Auth::user()->eqp->contact}}">
                     </div>
                   </div>
 
@@ -100,8 +100,13 @@
                               <input class="form-control" type="text" value="">
                           </div>
                   </div>
-                  <h3>Change Username & Password</h3>
-                  <div class="form-group">
+                  </div>
+          
+                      <button type="submit" class="btn btn-primary">Update Details</button>
+              
+                   </div>
+                  <!-- <h3>Change Username & Password</h3> -->
+                  <!-- <div class="form-group">
                     <label class="col-md-3 control-label">Username:</label>
                     <div class="col-md-8">
                       <input class="form-control" type="text" value="user">
@@ -126,7 +131,7 @@
                       <span></span>
                       <input type="reset" class="btn btn-primary" value="Reset">
                     </div>
-                  </div>
+                  </div> -->
                 </form>
               </div>
           </div>
@@ -146,13 +151,21 @@
 
        
             <br><br>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col d-flex justify-content-end">
                   <button class="btn btn-primary" type="submit">Save Changes</button>
                   <input class="btn btn-primary" type="submit" value="Submit">
                   <input class="btn btn-primary" type="reset" value="Reset">
                 </div>
+              </div> -->
+              <div id="colorlib-page">
+                <div class="container-wrap">
+                  <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                    <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+                <div class="text-center">
+                </div>
               </div>
+    </div>
             
             </form>
             </div>
